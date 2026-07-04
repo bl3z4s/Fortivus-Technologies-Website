@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Specs & Engineering Capabilities | Fortivus UV Printing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060608;
+        }
+        .font-grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.15);
+        }
+        .hero-text-glow { 
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.35), 0 0 80px rgba(6, 182, 212, 0.2); 
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060608;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #221a30;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
+        }
+        /* Animated toast system */
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .toast-animate {
+            animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        /* Flatbed carriage custom laser sweep styling */
+        @keyframes laserSweep {
+            0% { transform: translateY(0%); opacity: 0.1; }
+            50% { transform: translateY(100%); opacity: 0.9; }
+            100% { transform: translateY(0%); opacity: 0.1; }
+        }
+        .laser-glow {
+            box-shadow: 0 0 25px 5px rgba(168, 85, 247, 0.6), 0 0 40px 10px rgba(6, 182, 212, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#060608] text-gray-100 overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-[#060608]/80 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all duration-500">
+                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-grotesk tracking-tight text-white">
+                        Fortivus<span class="text-[#a855f7]">.</span>
+                    </span>
+                </a>
+                                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="phone-cases.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-[#a855f7] group">
+                        Services & Specs
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4]"></span>
+                    </a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        3D Customizer
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 transform hover:scale-105">
+                        Start Project
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+                
+        <!-- Mobile Dropdown Menu -->
+        <div class="md:hidden absolute top-full left-0 w-full bg-[#060608]/95 backdrop-blur-xl border-b border-white/10 hidden" id="mobile-menu">
+            <div class="px-6 py-8 flex flex-col gap-4">
+                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Home</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center text-[#a855f7]">
+                    <span>Services & Specs</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="contact.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>3D Customizer</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center shadow-lg">
+                    Start Custom Project
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Segment -->
+    <header class="relative pt-36 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-10 left-1/4 w-72 h-72 bg-[#a855f7]/10 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-[#06b6d4]/10 rounded-full blur-[140px] animate-pulse delay-1000"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:16px_16px] opacity-70"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/20 text-xs font-semibold text-[#06b6d4] uppercase tracking-wider mb-6">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Flatbed Calibration Mechanics
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold font-grotesk tracking-tight mb-4 hero-text-glow">Studio Specifications</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">
+                Explore the precise chemical, structural, and mechanical limits of Fortivus’s polymer UV curing processes. Formulated for high tactile density.
+            </p>
+        </div>
+    </header>
+
+    <!-- Content Segment -->
+    <main class="relative pb-32 z-10 flex-grow">
+        <div class="container mx-auto px-6 space-y-24">
+            
+            <!-- Interactive Section: Material Adhesion & Layer Estimator -->
+            <section class="max-w-6xl mx-auto">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-[#06b6d4]/10 to-[#a855f7]/10 rounded-3xl blur-md opacity-75"></div>
+                    <div class="relative glass-card rounded-3xl p-8 border border-white/10">
+                        <div class="flex flex-col lg:flex-row gap-12 items-center">
+                            
+                            <!-- Left form config block -->
+                            <div class="w-full lg:w-1/2 space-y-6">
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-widest text-[#a855f7]">Tactile Blueprint Estimator</span>
+                                    <h2 class="text-3xl font-bold font-grotesk text-white mt-2">Polymer Deposition Estimator</h2>
+                                    <p class="text-xs text-gray-400 mt-1">Configure prepress matrices to compute material adhesion properties instantly.</p>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <!-- Parameter 1: Substrate Material -->
+                                    <div class="space-y-2">
+                                        <label class="block text-xs uppercase font-semibold text-gray-400 tracking-wider">Substrate Base Plate</label>
+                                        <select id="est-substrate" onchange="recalculateMetrics()" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#06b6d4] focus:outline-none text-white cursor-pointer">
+                                            <option value="wood" selected>Walnut Solid Wood (Porous Bond)</option>
+                                            <option value="acrylic">Midnight Gloss Acrylic (Chemical Fusion)</option>
+                                            <option value="brass">Industrial Yellow Brass (Mechanical Keying)</option>
+                                            <option value="glass">Frosted Silica Glass (Dynamic Grip)</option>
+                                            <option value="carbon">Ultra-Modulus Carbon Fiber (Woven Core)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Parameter 2: White Underprint passes -->
+                                    <div class="space-y-2">
+                                        <label class="block text-xs uppercase font-semibold text-gray-400 tracking-wider">White Blockout Layer (Opacity Base)</label>
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <button onclick="setWhitePasses(0)" id="wp-0" class="wp-btn py-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-semibold text-xs text-center transition-all">None</button>
+                                            <button onclick="setWhitePasses(1)" id="wp-1" class="wp-btn py-2.5 rounded-xl border border-[#a855f7] bg-[#a855f7]/10 text-white font-semibold text-xs text-center transition-all">1 Pass (70%)</button>
+                                            <button onclick="setWhitePasses(2)" id="wp-2" class="wp-btn py-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-semibold text-xs text-center transition-all">2 Passes (100%)</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Parameter 3: Color pass count -->
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center text-xs">
+                                            <span class="uppercase font-semibold text-gray-400 tracking-wider">Tactile Color Passes</span>
+                                            <span id="label-color-passes" class="text-[#06b6d4] font-semibold font-mono">3 Passes (Matte)</span>
+                                        </div>
+                                        <input type="range" id="est-passes" min="1" max="15" value="3" oninput="recalculateMetrics()" class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#06b6d4]">
+                                    </div>
+
+                                    <!-- Parameter 4: Gloss Overlay Varnish -->
+                                    <div class="space-y-2">
+                                        <label class="block text-xs uppercase font-semibold text-gray-400 tracking-wider">Reflective Gloss Varnish Finish</label>
+                                        <select id="est-varnish" onchange="recalculateMetrics()" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#06b6d4] focus:outline-none text-white cursor-pointer">
+                                            <option value="0">Uncoated Matte Surface (Standard)</option>
+                                            <option value="1">Selective Spot Gloss (0.2mm Cap)</option>
+                                            <option value="2">Architectural High-Embossed (0.5mm Structure)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right telemetry monitor cards -->
+                            <div class="w-full lg:w-1/2 bg-[#09090c]/80 border border-white/5 rounded-2xl p-6 md:p-8 space-y-6">
+                                <h3 class="text-xs uppercase font-mono text-gray-500 tracking-widest flex items-center gap-2 border-b border-white/5 pb-4">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Theoretical Lab Telemetry
+                                </h3>
+
+                                <div class="grid grid-cols-2 gap-6">
+                                    <!-- Metric 1: Deposited thickness -->
+                                    <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                        <span class="text-[10px] uppercase text-gray-400 tracking-wider block">Deposition Thickness</span>
+                                        <span id="tel-thickness" class="text-3xl font-bold font-grotesk text-[#06b6d4] mt-1 block">0.45 mm</span>
+                                        <p class="text-[10px] text-gray-500 mt-1">Tactile volumetric profile</p>
+                                    </div>
+
+                                    <!-- Metric 2: Estimated polymerization time -->
+                                    <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                        <span class="text-[10px] uppercase text-gray-400 tracking-wider block">Estimated UV Exposure</span>
+                                        <span id="tel-time" class="text-3xl font-bold font-grotesk text-[#a855f7] mt-1 block">38 Sec</span>
+                                        <p class="text-[10px] text-gray-500 mt-1">LED sweeping period</p>
+                                    </div>
+
+                                    <!-- Metric 3: Scratch test result -->
+                                    <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                        <span class="text-[10px] uppercase text-gray-400 tracking-wider block">Hardness rating</span>
+                                        <span id="tel-scratch" class="text-3xl font-bold font-grotesk text-white mt-1 block">5H</span>
+                                        <p class="text-[10px] text-gray-500 mt-1">Pencil scratching test scale</p>
+                                    </div>
+
+                                    <!-- Metric 4: Adhesion bonding factor -->
+                                    <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                                        <span class="text-[10px] uppercase text-gray-400 tracking-wider block">Adhesion Rating</span>
+                                        <span id="tel-adhesion" class="text-3xl font-bold font-grotesk text-emerald-400 mt-1 block">ASTM 5B</span>
+                                        <p class="text-[10px] text-gray-500 mt-1">Cross-hatch cut testing</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-xl bg-[#a855f7]/5 border border-[#a855f7]/15">
+                                    <h4 class="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
+                                        <i data-lucide="info" class="w-3.5 h-3.5 text-[#a855f7]"></i>
+                                        Substrate Mechanical Bond Note:
+                                    </h4>
+                                    <p id="tel-note" class="text-[11px] text-gray-400 leading-relaxed">
+                                        Direct polymer curing onto solid wood allows deep capillary absorption, rendering highly reliable adhesion metrics without extra primer sprays.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hardware Specifications Grid -->
+            <section class="max-w-6xl mx-auto space-y-12">
+                <div class="text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#06b6d4]">Hardware Calibrations</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-grotesk text-white mt-2">Mechanical Thresholds</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Spec 1 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-[#a855f7]/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-4">
+                            <i data-lucide="maximize" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white font-grotesk mb-2">Build Bed Limits</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Formulated to fit standard A4 sheets with precision registration mounts. Max physical build area: <strong class="text-white font-mono text-xs">210 x 297 mm</strong>. Height limits fit items up to <strong class="text-white font-mono text-xs">45 mm</strong> tall.
+                        </p>
+                    </div>
+
+                    <!-- Spec 2 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-[#06b6d4]/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-[#06b6d4]/10 border border-[#06b6d4]/20 flex items-center justify-center text-[#06b6d4] mb-4">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white font-grotesk mb-2">Curing Engine Emission</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Dual LED liquid-cooled curing modules active at <strong class="text-white font-mono text-xs">395nm wavelength</strong>. Dynamic power control scales intensity step-by-step from 30% to 100% to protect thin plastic overlays from warping.
+                        </p>
+                    </div>
+
+                    <!-- Spec 3 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-[#ec4899]/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-[#ec4899]/10 border border-[#ec4899]/20 flex items-center justify-center text-[#ec4899] mb-4">
+                            <i data-lucide="crosshair" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white font-grotesk mb-2">Registration Accuracy</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Micro-stepping carriage rail delivers horizontal positioning accurate down to <strong class="text-white font-mono text-xs">&plusmn;0.05 mm</strong>. Eliminates bleed and ensures perfect overlay alignment.
+                        </p>
+                    </div>
+
+                    <!-- Spec 4 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-[#10b981]/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center text-[#10b981] mb-4">
+                            <i data-lucide="image" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white font-grotesk mb-2">DPI Density Profile</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            High-density piezo drop-on-demand technology scales resolution up to <strong class="text-white font-mono text-xs">1440 x 1440 DPI</strong>. Reproduces crisp text vectors down to 3pt font size.
+                        </p>
+                    </div>
+
+                    <!-- Spec 5 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-[#f59e0b]/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center text-[#f59e0b] mb-4">
+                            <i data-lucide="droplet" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white font-grotesk mb-2">Ink Pigment Properties</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Fortivus utilizes flexible high-stretch elastomers that allow substrates to flex up to 180&deg; after curing without fracturing the printed polymer film.
+                        </p>
+                    </div>
+
+                    <!-- Spec 6 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-[#a855f7]/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-4">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-white font-grotesk mb-2">Prepress RIP Processing</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Proprietary raster image processors isolate and compile Spot Color vector paths, mapping White backing plates and Varnish layers automatically.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Section: LED UV Flatbed Printing Simulator -->
+            <section class="max-w-4xl mx-auto space-y-8">
+                <div class="text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#ec4899]">Studio Simulation</span>
+                    <h2 class="text-3xl font-bold font-grotesk text-white mt-1">Simulate UV Print Carriage Curing</h2>
+                    <p class="text-xs text-gray-400 mt-2">Observe live multi-pass horizontal printing. Hit the initialization link below.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border border-white/15 bg-black/50 overflow-hidden relative">
+                    <!-- The Bed Carriage Graphic -->
+                    <div class="relative w-full aspect-[2/1] bg-[#111115] rounded-xl border border-white/5 overflow-hidden select-none flex items-center justify-center" id="flatbed-sim-frame">
+                        <!-- Horizontal Laser Curing Carriage Line -->
+                        <div id="sim-laser-carriage" class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a855f7] to-transparent opacity-0 transition-all duration-300 z-20">
+                            <div class="absolute inset-0 bg-[#06b6d4] opacity-80 blur-md laser-glow"></div>
+                        </div>
+
+                        <!-- Substrate placeholder in bed -->
+                        <div id="sim-substrate-plate" class="w-60 h-40 bg-[#1e1a30] rounded-lg border border-white/10 flex flex-col justify-between p-4 relative overflow-hidden transition-all duration-500 shadow-inner">
+                            <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:12px_12px] opacity-15"></div>
+                            
+                            <!-- Uncured vs Cured Artwork reveal overlay -->
+                            <div id="sim-printed-artwork" class="absolute inset-0 bg-gradient-to-tr from-[#a855f7]/30 to-[#06b6d4]/40 opacity-0 transition-opacity duration-[10s] flex items-center justify-center">
+                                <svg viewBox="0 0 100 100" class="w-20 h-20 text-[#a855f7] filter drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+                                    <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <polygon points="50,15 58,40 42,40" fill="currentColor" opacity="0.8"/>
+                                </svg>
+                            </div>
+
+                            <div class="z-10 flex justify-between items-start">
+                                <span class="text-[9px] font-mono text-gray-500 uppercase">Target: Solid substrate</span>
+                                <span class="text-[9px] font-mono text-[#a855f7]" id="sim-pass-indicator">Pass: 0 / 3</span>
+                            </div>
+                            <div class="z-10 text-center">
+                                <span id="sim-plate-label" class="text-xs font-bold uppercase tracking-wider text-gray-500 font-grotesk">Awaiting Initialization...</span>
+                            </div>
+                            <div class="z-10 flex justify-between items-end">
+                                <span class="text-[9px] font-mono text-gray-500 uppercase">A4 Layout Tray</span>
+                                <span class="text-[9px] font-mono text-gray-500" id="sim-percentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulator Controls -->
+                    <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-4 pt-4 border-t border-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-rose-500" id="sim-state-dot"></div>
+                            <span class="text-xs font-mono text-gray-400" id="sim-state-txt">System Standby</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <button onclick="triggerSimulatedCure()" id="sim-start-btn" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-xs hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all flex items-center gap-2">
+                                <i data-lucide="play" class="w-4 h-4"></i>
+                                <span>Initialize Curing Run</span>
+                            </button>
+                            <button onclick="resetSimulatedCure()" id="sim-reset-btn" class="px-6 py-2.5 rounded-full border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 text-xs font-semibold transition-all hidden">
+                                <span>Reset Carriage Bed</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Material Chemistry Suitability Guide -->
+            <section class="max-w-6xl mx-auto space-y-8">
+                <div class="text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#10b981]">Engineering Matrix</span>
+                    <h2 class="text-3xl font-bold font-grotesk text-white mt-1">Substrate Suitability Metrics</h2>
+                    <p class="text-sm text-gray-400 mt-2">Chemical bonding strengths, thermal thresholds, and mechanical bond metrics across raw items.</p>
+                </div>
+
+                <div class="overflow-x-auto glass-card rounded-2xl border border-white/5">
+                    <table class="w-full text-left text-sm border-collapse min-w-[640px]">
+                        <thead>
+                            <tr class="border-b border-white/10 bg-white/[0.02]">
+                                <th class="p-4 font-semibold text-xs uppercase tracking-wider text-gray-400">Material Substrate</th>
+                                <th class="p-4 font-semibold text-xs uppercase tracking-wider text-gray-400">Chemical Adhesion</th>
+                                <th class="p-4 font-semibold text-xs uppercase tracking-wider text-gray-400">Flexibility Tolerance</th>
+                                <th class="p-4 font-semibold text-xs uppercase tracking-wider text-gray-400">Prepress Treatment</th>
+                                <th class="p-4 font-semibold text-xs uppercase tracking-wider text-gray-400">Recommended Varnish</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-xs text-gray-300">
+                            <!-- Row 1 -->
+                            <tr class="hover:bg-white/[0.01] transition-colors">
+                                <td class="p-4 font-semibold text-white">Midnight Acrylic (PMMA)</td>
+                                <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-medium border border-emerald-500/20">Excellent (Fusing Bond)</span></td>
+                                <td class="p-4">Semi-Rigid (Up to 15&deg; Bend)</td>
+                                <td class="p-4 text-gray-400">Anti-Static Alcohol Wipe</td>
+                                <td class="p-4 text-gray-400">Gloss spot (0.2mm)</td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="hover:bg-white/[0.01] transition-colors">
+                                <td class="p-4 font-semibold text-white">Walnut & Hardwood Plates</td>
+                                <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-medium border border-emerald-500/20">Excellent (Capillary bond)</span></td>
+                                <td class="p-4">Non-Rigid (Static)</td>
+                                <td class="p-4 text-gray-400">Mechanical Sanding</td>
+                                <td class="p-4 text-gray-400">None (Expose grain texture)</td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="hover:bg-white/[0.01] transition-colors">
+                                <td class="p-4 font-semibold text-white">Silica Glass Panels</td>
+                                <td class="p-4"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-medium border border-amber-500/20">Moderate (Grip-Fit)</span></td>
+                                <td class="p-4">Brittle (Rigid)</td>
+                                <td class="p-4 text-gray-400">Prepress Adhesion Primer</td>
+                                <td class="p-4 text-gray-400">Gloss Varnish Overlay</td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="hover:bg-white/[0.01] transition-colors">
+                                <td class="p-4 font-semibold text-white">Brass & Brushed Gunmetal</td>
+                                <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-medium border border-emerald-500/20">Excellent (Hard key)</span></td>
+                                <td class="p-4">Static (Rigid)</td>
+                                <td class="p-4 text-gray-400">Acetone degreasing</td>
+                                <td class="p-4 text-gray-400">Embossed Gloss Spot</td>
+                            </tr>
+                            <!-- Row 5 -->
+                            <tr class="hover:bg-white/[0.01] transition-colors">
+                                <td class="p-4 font-semibold text-white">Elastomers & Silicone Cases</td>
+                                <td class="p-4"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-medium border border-amber-500/20">Good (Elastomeric grip)</span></td>
+                                <td class="p-4"><span class="text-emerald-400 font-medium">Fully Flexible (180&deg; Fold)</span></td>
+                                <td class="p-4 text-gray-400">Plasma discharge torching</td>
+                                <td class="p-4 text-gray-400">Flexible Spot Coat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-16 pb-8 bg-[#060608]">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                            <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold font-grotesk text-white">Fortivus.</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm text-sm">Premium UV printing studio specializing in tactile, high-resolution physical layers and custom boutique merchandise.</p>
+                    
+                    <!-- Social Links with custom SVGs to fix blank icon bug -->
+                    <div class="flex gap-4">
+                        <!-- Facebook Link -->
+                        <a href="https://www.facebook.com/profile.php?id=61585484715006" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'Facebook', 'Fortivus')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#06b6d4] transition-all" aria-label="Visit Facebook">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram Link -->
+                        <a href="https://instagram.com/fortivus.studio" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'Instagram', '@fortivus.studio')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#a855f7] transition-all" aria-label="Visit Instagram">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn Link -->
+                        <a href="https://linkedin.com/company/fortivus-uv-printing" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'LinkedIn', 'Fortivus')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#06b6d4] transition-all" aria-label="Connect on LinkedIn">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+
+                        <!-- Twitter/X Link -->
+                        <a href="https://x.com/fortivus_studio" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'X (Twitter)', '@fortivus_studio')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#ec4899] transition-all" aria-label="Follow on X">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm">Services</h4>
+                    <ul class="space-y-3 text-gray-400 text-xs">
+                        <li><a href="index.html#services" class="hover:text-[#a855f7] transition-colors">Tactile Layering</a></li>
+                        <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Custom Wood Trays</a></li>
+                        <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Phone Shells</a></li>
+                        <li><a href="index.html#services" class="hover:text-[#a855f7] transition-colors">Corporate Branding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm">Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-xs">
+                        <li><a href="index.html" class="hover:text-[#a855f7] transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Studio Specs</a></li>
+                        <li><a href="privacy.html" class="hover:text-[#a855f7] transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs">&copy; 2026 Fortivus Studio Technologies. Dedicated high-resolution polymer flatbeds.</p>
+                <div class="flex gap-6 text-xs text-gray-500">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="index.html#contact" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLASS TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+
+    <script>
+        // Setup Lucide Icons on DOM load
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            recalculateMetrics();
+        });
+
+        // TOAST ENGINE (Replaces banned alerts)
+        function showToast(title, text, type = 'info') {
+            const toastContainer = document.getElementById('toast-container');
+            if (!toastContainer) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'glass-card p-4 rounded-2xl flex gap-3 shadow-2xl border border-white/10 toast-animate bg-black/95 select-none pointer-events-auto';
+            
+            const icons = {
+                success: '<i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>',
+                info: '<i data-lucide="info" class="w-5 h-5 text-[#06b6d4]"></i>',
+                warning: '<i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500"></i>'
+            };
+
+            toast.innerHTML = `
+                <div class="flex-shrink-0 mt-0.5">${icons[type] || icons.info}</div>
+                <div class="flex-grow">
+                    <h4 class="text-sm font-bold text-white">${title}</h4>
+                    <p class="text-xs text-gray-400 mt-1">${text}</p>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2', 'transition-all', 'duration-500');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 3500);
+        }
+
+        // MOBILE NAVIGATION BAR ACTIONS
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // SOCIAL CHANNELS CONFIRMATIONS
+        function handleSocialClick(event, platform, handle) {
+            if (window.self !== window.top) {
+                event.preventDefault();
+            }
+            showToast(
+                `Connecting to ${platform}`, 
+                `Directing to simulated channel: ${handle}. Learn more about our UV systems!`, 
+                'info'
+            );
+        }
+
+        // PARAMETER ESTIMATOR STATE MANAGEMENT
+        let currentWhitePasses = 1;
+
+        function setWhitePasses(val) {
+            currentWhitePasses = val;
+            document.querySelectorAll('.wp-btn').forEach(btn => {
+                btn.classList.remove('border-[#a855f7]', 'bg-[#a855f7]/10', 'text-white');
+                btn.classList.add('border-white/10', 'bg-white/5', 'text-gray-400');
+            });
+            document.getElementById(`wp-${val}`).classList.remove('border-white/10', 'bg-white/5', 'text-gray-400');
+            document.getElementById(`wp-${val}`).classList.add('border-[#a855f7]', 'bg-[#a855f7]/10', 'text-white');
+            recalculateMetrics();
+        }
+
+        function recalculateMetrics() {
+            const substrate = document.getElementById('est-substrate').value;
+            const passes = parseInt(document.getElementById('est-passes').value);
+            const varnish = parseInt(document.getElementById('est-varnish').value);
+
+            // Update Label Text
+            let passAesthetic = "Passes (Matte)";
+            if (passes > 10) passAesthetic = "Passes (Thick Embossed)";
+            else if (passes > 5) passAesthetic = "Passes (Tactile Dynamic)";
+            document.getElementById('label-color-passes').textContent = `${passes} ${passAesthetic}`;
+
+            // Calculate Thickness
+            const whiteThickness = currentWhitePasses * 0.15;
+            const colorThickness = passes * 0.08;
+            const varnishThickness = varnish * 0.20;
+            const totalThickness = (whiteThickness + colorThickness + varnishThickness).toFixed(2);
+            document.getElementById('tel-thickness').textContent = `${totalThickness} mm`;
+
+            // Calculate Exposure Time
+            const baseTime = 12; // setup overhead
+            const passTime = (currentWhitePasses * 6) + (passes * 5) + (varnish * 8);
+            document.getElementById('tel-time').textContent = `${baseTime + passTime} Sec`;
+
+            // Calculate Hardness and Adhesion Ratings based on material chemistry
+            let hardnessValue = "4H";
+            let adhesionValue = "ASTM 5B";
+            let noteStr = "";
+
+            if (substrate === 'wood') {
+                hardnessValue = "5H";
+                adhesionValue = "ASTM 5B";
+                noteStr = "Direct polymer curing onto solid wood allows deep capillary absorption, rendering highly reliable adhesion metrics without extra primer sprays.";
+            } else if (substrate === 'acrylic') {
+                hardnessValue = "6H";
+                adhesionValue = "ASTM 4B";
+                noteStr = "High polymer compatibility with acrylic boards leads to cross-chemical curing bonds. Yields extreme resistance against scratching.";
+            } else if (substrate === 'brass') {
+                hardnessValue = "4H";
+                adhesionValue = "ASTM 3B";
+                noteStr = "Metal flatbed printing relies strictly on physical tension bonding. Prepress degreasing and cleaning stages are mandatory for brass runs.";
+            } else if (substrate === 'glass') {
+                hardnessValue = "3H";
+                adhesionValue = "ASTM 3B";
+                noteStr = "Frosted glass features high chemical silica hardness but offers minimal raw keying. Fortivus sprays specialized adhesion promoter on glass.";
+            } else if (substrate === 'carbon') {
+                hardnessValue = "7H";
+                adhesionValue = "ASTM 5B";
+                noteStr = "The woven microstructure of carbon fiber traps prepress inks firmly. Hardness is heavily amplified by backing carbon plates.";
+            }
+
+            document.getElementById('tel-scratch').textContent = hardnessValue;
+            document.getElementById('tel-adhesion').textContent = adhesionValue;
+            document.getElementById('tel-note').textContent = noteStr;
+        }
+
+        // PRINTING FLATBED SIMULATION ANIMATION SYSTEM
+        let isSimActive = false;
+        let simInterval = null;
+
+        function triggerSimulatedCure() {
+            if (isSimActive) {
+                showToast("Simulation Active", "Carriage run is already compiling on the bed.", "warning");
+                return;
+            }
+
+            isSimActive = true;
+            
+            // Adjust State elements
+            const stateDot = document.getElementById('sim-state-dot');
+            const stateTxt = document.getElementById('sim-state-txt');
+            const startBtn = document.getElementById('sim-start-btn');
+            const resetBtn = document.getElementById('sim-reset-btn');
+            const laserLine = document.getElementById('sim-laser-carriage');
+            const plate = document.getElementById('sim-substrate-plate');
+            const label = document.getElementById('sim-plate-label');
+            const art = document.getElementById('sim-printed-artwork');
+
+            stateDot.className = "w-3 h-3 rounded-full bg-amber-500 animate-ping";
+            stateTxt.textContent = "Carriage Bed Pre-heating...";
+            startBtn.classList.add('opacity-50', 'pointer-events-none');
+            
+            showToast("Print Loop Triggered", "Aligning physical stepper carriage... White backing active.", "info");
+
+            setTimeout(() => {
+                if (!isSimActive) return; // safeguard if reset clicked during preheat
+                
+                stateDot.className = "w-3 h-3 rounded-full bg-[#a855f7] animate-pulse";
+                stateTxt.textContent = "Curing CMX Matrix...";
+                laserLine.classList.remove('opacity-0');
+                laserLine.style.animation = "laserSweep 2.5s infinite linear";
+                plate.style.borderColor = "rgba(168, 85, 247, 0.4)";
+                
+                let progress = 0;
+                let passCount = 1;
+                
+                label.textContent = "Depositing Base Base...";
+                label.className = "text-xs font-bold uppercase tracking-wider text-[#a855f7] font-grotesk animate-pulse";
+
+                simInterval = setInterval(() => {
+                    progress += 4;
+                    if (progress > 100) {
+                        progress = 0;
+                        passCount++;
+                        if (passCount > 3) {
+                            // Curing sequence ended successfully
+                            clearInterval(simInterval);
+                            finalizeSimulation();
+                            return;
+                        }
+                        
+                        // Pass threshold updates
+                        if (passCount === 2) {
+                            label.textContent = "Printing CMYK Layer...";
+                            label.className = "text-xs font-bold uppercase tracking-wider text-[#06b6d4] font-grotesk animate-pulse";
+                            showToast("Pass 2 Active", "Solid White Base laid down successfully. Swapping RIP pathways to vibrant CMYK pigment vectors.", "success");
+                        } else if (passCount === 3) {
+                            label.textContent = "Applying Varnish Cap...";
+                            label.className = "text-xs font-bold uppercase tracking-wider text-[#ec4899] font-grotesk animate-pulse";
+                            showToast("Pass 3 Active", "Injecting Spot Varnish overlays. Curing clear high-density specular polymers.", "success");
+                        }
+                    }
+
+                    document.getElementById('sim-percentage').textContent = `${progress}%`;
+                    document.getElementById('sim-pass-indicator').textContent = `Pass: ${passCount} / 3`;
+                    
+                    // Reveal printed art over time
+                    art.style.opacity = ( ( (passCount - 1) * 33) + (progress / 3) ) / 100;
+                    
+                }, 300);
+
+            }, 2000);
+        }
+
+        function finalizeSimulation() {
+            const stateDot = document.getElementById('sim-state-dot');
+            const stateTxt = document.getElementById('sim-state-txt');
+            const startBtn = document.getElementById('sim-start-btn');
+            const resetBtn = document.getElementById('sim-reset-btn');
+            const laserLine = document.getElementById('sim-laser-carriage');
+            const label = document.getElementById('sim-plate-label');
+
+            isSimActive = false;
+            laserLine.classList.add('opacity-0');
+            laserLine.style.animation = "none";
+            
+            stateDot.className = "w-3 h-3 rounded-full bg-emerald-500";
+            stateTxt.textContent = "Print Complete (polymerized)";
+            
+            label.textContent = "Cured Solid Substrate";
+            label.className = "text-xs font-bold uppercase tracking-wider text-emerald-400 font-grotesk";
+            
+            document.getElementById('sim-percentage').textContent = `100%`;
+            document.getElementById('sim-pass-indicator').textContent = `Pass: 3 / 3`;
+
+            resetBtn.classList.remove('hidden');
+            
+            showToast("Carriage Loop Completed", "Flatbed curing pass concluded. Substrate polymers are 100% polymerized and cold-stable.", "success");
+        }
+
+        function resetSimulatedCure() {
+            if (simInterval) clearInterval(simInterval);
+            isSimActive = false;
+
+            const stateDot = document.getElementById('sim-state-dot');
+            const stateTxt = document.getElementById('sim-state-txt');
+            const startBtn = document.getElementById('sim-start-btn');
+            const resetBtn = document.getElementById('sim-reset-btn');
+            const laserLine = document.getElementById('sim-laser-carriage');
+            const plate = document.getElementById('sim-substrate-plate');
+            const label = document.getElementById('sim-plate-label');
+            const art = document.getElementById('sim-printed-artwork');
+
+            laserLine.classList.add('opacity-0');
+            laserLine.style.animation = "none";
+            plate.style.borderColor = "rgba(255, 255, 255, 0.1)";
+            art.style.opacity = "0";
+
+            stateDot.className = "w-3 h-3 rounded-full bg-rose-500";
+            stateTxt.textContent = "System Standby";
+
+            label.textContent = "Awaiting Initialization...";
+            label.className = "text-xs font-bold uppercase tracking-wider text-gray-500 font-grotesk";
+
+            document.getElementById('sim-percentage').textContent = `0%`;
+            document.getElementById('sim-pass-indicator').textContent = `Pass: 0 / 3`;
+
+            startBtn.classList.remove('opacity-50', 'pointer-events-none');
+            resetBtn.classList.add('hidden');
+
+            showToast("System Reset", "Carriage bed flushed. Cleared dynamic memory arrays.", "info");
+        }
+
+        // SCROLL BAR NAVBAR CONTROLLER
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl', 'bg-black/40');
+            } else {
+                navbar.classList.remove('shadow-2xl', 'bg-black/40');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Case Studio | Fortivus UV Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .hero-text-glow { text-shadow: 0 0 40px rgba(168, 85, 247, 0.4); }
+        .control-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; }
+        .control-input:focus { outline: none; border-color: #06b6d4; background: rgba(255,255,255,0.08); }
+        /* Hide default range slider styling for custom look */
+        input[type=range] { -webkit-appearance: none; background: rgba(255,255,255,0.1); height: 6px; border-radius: 999px; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #06b6d4; cursor: pointer; }
+    </style>
+</head>
+<body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 top-0 shadow-[0_4px_30px_rgba(0,0,0,0.5)]" id="navbar">
+        <div class="absolute inset-0 bg-[#0d0d0d]/90 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                    <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                </div>
+                <span class="text-2xl font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Home</a>
+                <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Services</a>
+                <a href="about.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">About</a>
+                <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:scale-105 transition-all">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-16 min-h-screen flex items-center">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+                
+                <div class="lg:col-span-5 space-y-6 order-2 lg:order-1">
+                    <div class="glass-card p-6 md:p-8 rounded-3xl border border-white/10 space-y-6">
+                        <div>
+                            <h1 class="text-3xl font-bold font-['Space_Grotesk'] mb-2">Case Configurator</h1>
+                            <p class="text-sm text-gray-400">Design your high-resolution custom tactile merchandise.</p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="block text-sm font-medium text-gray-400">1. Select Device Model</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <span class="text-xs text-gray-500 block mb-1">Brand</span>
+                                    <select id="brandSelect" class="w-full px-3 py-2.5 rounded-xl control-input text-sm">
+                                        <option value="apple">Apple</option>
+                                        <option value="samsung">Samsung</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500 block mb-1">Model</span>
+                                    <select id="modelSelect" class="w-full px-3 py-2.5 rounded-xl control-input text-sm">
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="block text-sm font-medium text-gray-400">2. Upload Your Design</label>
+                            <div class="relative w-full h-24 border border-dashed border-white/20 hover:border-[#06b6d4] rounded-xl transition-colors flex flex-col items-center justify-center cursor-pointer bg-white/5 group">
+                                <input type="file" id="imageUpload" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+                                <i data-lucide="upload-cloud" class="w-6 h-6 text-gray-400 group-hover:text-[#06b6d4] mb-1 transition-colors"></i>
+                                <span class="text-xs text-gray-400 group-hover:text-gray-200 transition-colors">Click to drop high-res image (PNG/JPG)</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 pt-2 border-t border-white/5">
+                            <label class="block text-sm font-medium text-gray-400">3. Adjust Placement</label>
+                            
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-xs text-gray-400">
+                                    <span>Scale</span>
+                                    <span id="scaleVal">100%</span>
+                                </div>
+                                <input type="range" id="scaleSlider" min="10" max="300" value="100" class="w-full">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <div class="flex justify-between text-xs text-gray-400">
+                                        <span>Move X</span>
+                                    </div>
+                                    <input type="range" id="moveXSlider" min="-200" max="200" value="0" class="w-full">
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="flex justify-between text-xs text-gray-400">
+                                        <span>Move Y</span>
+                                    </div>
+                                    <input type="range" id="moveYSlider" min="-250" max="250" value="0" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-2 border-t border-white/5">
+                            <label class="block text-sm font-medium text-gray-400">4. Select Studio Finish</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" class="finish-btn p-2 rounded-xl border text-xs font-medium text-center transition-all bg-[#a855f7]/10 border-[#a855f7]" data-finish="tactile">
+                                    Tactile 3D Embossed
+                                </button>
+                                <button type="button" class="finish-btn p-2 rounded-xl border text-xs font-medium text-center transition-all border-white/10 hover:border-white/20 bg-white/5 text-gray-400" data-finish="gloss">
+                                    Ultra Varnish Gloss
+                                </button>
+                                <button type="button" class="finish-btn p-2 rounded-xl border text-xs font-medium text-center transition-all border-white/10 hover:border-white/20 bg-white/5 text-gray-400" data-finish="matte">
+                                    Satin Matte Art
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="w-full py-4 rounded-xl bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-bold text-md hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-300">
+                            Confirm Design & Quote
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 flex flex-col items-center justify-center order-1 lg:order-2 self-center">
+                    <div class="relative glass-card p-6 md:p-8 rounded-3xl border border-white/10 w-full max-w-md flex flex-col items-center shadow-2xl">
+                        
+                        <div class="absolute top-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#a855f7]/20 border border-[#a855f7]/40 text-[11px] font-medium text-[#c084fc]" id="finishBadge">
+                            <i data-lucide="layers" class="w-3 h-3"></i> Tactile 3D Layers Enabled
+                        </div>
+
+                        <div class="my-6 relative bg-[#141414] rounded-[42px] p-2 border-4 border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+                            <canvas id="studioCanvas" width="300" height="580" class="rounded-[36px] block"></canvas>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="text-xs text-gray-500">Instant direct-to-object curing preview template</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
+            &copy; <script>document.write(new Date().getFullYear())</script> Fortivus Technologies. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Comprehensive list of targeted device models 
+        const deviceCatalog = {
+            apple: [
+                { id: "iphone15pm", name: "iPhone 15 Pro Max", camera: { x: 22, y: 22, w: 90, h: 90, r: 20 } },
+                { id: "iphone15p", name: "iPhone 15 Pro", camera: { x: 22, y: 22, w: 82, h: 82, r: 18 } },
+                { id: "iphone15", name: "iPhone 15", camera: { x: 22, y: 22, w: 76, h: 76, r: 16 } },
+                { id: "iphone14pm", name: "iPhone 14 Pro Max", camera: { x: 22, y: 22, w: 88, h: 88, r: 20 } },
+                { id: "iphone13", name: "iPhone 13", camera: { x: 22, y: 22, w: 72, h: 72, r: 16 } }
+            ],
+            samsung: [
+                { id: "s24u", name: "Galaxy S24 Ultra", camera: { x: 24, y: 24, w: 50, h: 105, r: 10 } },
+                { id: "s24", name: "Galaxy S24", camera: { x: 24, y: 24, w: 42, h: 92, r: 12 } },
+                { id: "s23u", name: "Galaxy S23 Ultra", camera: { x: 24, y: 24, w: 50, h: 105, r: 10 } },
+                { id: "a54", name: "Galaxy A54 5G", camera: { x: 24, y: 24, w: 42, h: 90, r: 12 } }
+            ]
+        };
+
+        // DOM elements configuration
+        const brandSelect = document.getElementById('brandSelect');
+        const modelSelect = document.getElementById('modelSelect');
+        const imageUpload = document.getElementById('imageUpload');
+        const scaleSlider = document.getElementById('scaleSlider');
+        const scaleVal = document.getElementById('scaleVal');
+        const moveXSlider = document.getElementById('moveXSlider');
+        const moveYSlider = document.getElementById('moveYSlider');
+        const finishBtns = document.querySelectorAll('.finish-btn');
+        const finishBadge = document.getElementById('finishBadge');
+
+        // Setup HTML5 canvas context
+        const canvas = document.getElementById('studioCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Internal graphic state variables
+        let uploadedImage = null;
+        let currentTransform = { scale: 1.0, x: 0, y: 0 };
+        let activeModel = null;
+
+        // Initialize and change select fields mapping models
+        function populateModels() {
+            const selectedBrand = brandSelect.value;
+            modelSelect.innerHTML = '';
+            deviceCatalog[selectedBrand].forEach(model => {
+                const opt = document.createElement('option');
+                opt.value = model.id;
+                opt.textContent = model.name;
+                modelSelect.appendChild(opt);
+            });
+            updateSelectedModel();
+        }
+
+        function updateSelectedModel() {
+            const selectedBrand = brandSelect.value;
+            const selectedModelId = modelSelect.value;
+            activeModel = deviceCatalog[selectedBrand].find(m => m.id === selectedModelId);
+            renderCanvas();
+        }
+
+        // Image loading entry point
+        imageUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        uploadedImage = img;
+                        // Reset properties default configuration mapping
+                        scaleSlider.value = 100;
+                        moveXSlider.value = 0;
+                        moveYSlider.value = 0;
+                        currentTransform = { scale: 1.0, x: 0, y: 0 };
+                        scaleVal.textContent = "100%";
+                        renderCanvas();
+                    }
+                    img.src = event.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Event listener hooks updates inputs
+        scaleSlider.addEventListener('input', (e) => {
+            currentTransform.scale = parseInt(e.target.value) / 100;
+            scaleVal.textContent = e.target.value + "%";
+            renderCanvas();
+        });
+
+        moveXSlider.addEventListener('input', (e) => {
+            currentTransform.x = parseInt(e.target.value);
+            renderCanvas();
+        });
+
+        moveYSlider.addEventListener('input', (e) => {
+            currentTransform.y = parseInt(e.target.value);
+            renderCanvas();
+        });
+
+        brandSelect.addEventListener('change', populateModels);
+        modelSelect.addEventListener('change', updateSelectedModel);
+
+        // Selection engine control handles active printing finishes styles toggled
+        finishBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                finishBtns.forEach(b => {
+                    b.classList.remove('bg-[#a855f7]/10', 'border-[#a855f7]', 'bg-[#06b6d4]/10', 'border-[#06b6d4]', 'bg-[#ec4899]/10', 'border-[#ec4899]');
+                    b.classList.add('border-white/10', 'bg-white/5', 'text-gray-400');
+                });
+                
+                const styleType = this.getAttribute('data-finish');
+                this.classList.remove('border-white/10', 'bg-white/5', 'text-gray-400');
+                
+                if(styleType === 'tactile') {
+                    this.classList.add('bg-[#a855f7]/10', 'border-[#a855f7]');
+                    finishBadge.innerHTML = `<i data-lucide="layers" class="w-3 h-3"></i> Tactile 3D Layers Enabled`;
+                    finishBadge.className = "absolute top-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#a855f7]/20 border border-[#a855f7]/40 text-[11px] font-medium text-[#c084fc]";
+                } else if(styleType === 'gloss') {
+                    this.classList.add('bg-[#06b6d4]/10', 'border-[#06b6d4]');
+                    finishBadge.innerHTML = `<i data-lucide="sparkles" class="w-3 h-3"></i> Premium Gloss Finish`;
+                    finishBadge.className = "absolute top-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#06b6d4]/20 border border-[#06b6d4]/40 text-[11px] font-medium text-[#22d3ee]";
+                } else {
+                    this.classList.add('bg-[#ec4899]/10', 'border-[#ec4899]');
+                    finishBadge.innerHTML = `<i data-lucide="eye" class="w-3 h-3"></i> Matte Satin Art Coat`;
+                    finishBadge.className = "absolute top-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ec4899]/20 border border-[#ec4899]/40 text-[11px] font-medium text-[#f472b6]";
+                }
+                lucide.createIcons();
+                renderCanvas();
+            });
+        });
+
+        // Core rendering configuration matrix engine
+        function renderCanvas() {
+            // Clear space buffer canvas properties container layout tracking structures
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (!activeModel) return;
+
+            const w = canvas.width;
+            const h = canvas.height;
+
+            // Step A: Render Background Case Texture Matrix fill
+            ctx.fillStyle = "#1e1e1e";
+            ctx.fillRect(0, 0, w, h);
+
+            // Step B: Draw and clip content bounds context layout
+            ctx.save();
+            
+            // Generate standard container box matching case rounding profile geometry path bounds mapping matrix definitions
+            ctx.beginPath();
+            ctx.roundRect(0, 0, w, h, 32);
+            ctx.clip();
+
+            if (uploadedImage) {
+                ctx.save();
+                // Move viewport context to core center matrix handles relative translations tracking points configurations definitions structures
+                ctx.translate(w / 2 + currentTransform.x, h / 2 + currentTransform.y);
+                ctx.scale(currentTransform.scale, currentTransform.scale);
+                
+                // Draw graphic center bounding paths layers options tracking layouts configurations properties parameters
+                const imgW = uploadedImage.width;
+                const imgH = uploadedImage.height;
+                const aspect = imgW / imgH;
+                
+                // Render target box relative width mapping dimensions layouts standard bounding fields positions
+                let targetW = w;
+                let targetH = w / aspect;
+                if (targetH < h) {
+                    targetH = h;
+                    targetW = h * aspect;
+                }
+                
+                ctx.drawImage(uploadedImage, -targetW / 2, -targetH / 2, targetW, targetH);
+                ctx.restore();
+            } else {
+                // Placeholder guide graphic text if empty canvas frame structure arrays bounds setup defaults
+                ctx.fillStyle = "#2c2c2c";
+                ctx.fillRect(0, 0, w, h);
+                ctx.fillStyle = "rgba(255,255,255,0.15)";
+                ctx.font = "14px 'Inter'";
+                ctx.textAlign = "center";
+                ctx.fillText("Upload design pattern artwork file", w / 2, h / 2);
+            }
+
+            // Step C: Render Camera Cutout Overlay dynamic parameters structural calculations profiles tracking
+            ctx.restore(); 
+            ctx.save();
+            
+            const cam = activeModel.camera;
+            ctx.fillStyle = "#0d0d0d";
+            ctx.strokeStyle = "rgba(255,255,255,0.12)";
+            ctx.lineWidth = 3;
+            
+            ctx.beginPath();
+            ctx.roundRect(cam.x, cam.y, cam.w, cam.h, cam.r);
+            ctx.fill();
+            ctx.stroke();
+
+            // Inner lenses modules details mockup visualization details
+            ctx.fillStyle = "#141414";
+            if (activeModel.id.includes("iphone")) {
+                // Triple lens mock layout positioning paths structure definitions
+                const lenses = [
+                    {x: cam.x + cam.w/3, y: cam.y + cam.h/3, r: 14},
+                    {x: cam.x + cam.w*2/3, y: cam.y + cam.h/2, r: 14},
+                    {x: cam.x + cam.w/3, y: cam.y + cam.h*2/3, r: 14}
+                ];
+                lenses.forEach(l => {
+                    ctx.beginPath(); ctx.arc(l.x, l.y, l.r, 0, Math.PI*2); ctx.fill();
+                });
+            } else {
+                // Vertical array layout matrix (Samsung models setup templates)
+                for (let i = 0; i < 3; i++) {
+                    ctx.beginPath();
+                    ctx.arc(cam.x + cam.w/2, cam.y + 20 + (i * 32), 11, 0, Math.PI*2);
+                    ctx.fill();
+                }
+            }
+            ctx.restore();
+
+            // Step D: Apply subtle highlights shading 3D depth case curvature lighting layers properties simulation overlay
+            const gradient = ctx.createLinearGradient(0, 0, w, 0);
+            gradient.addColorStop(0, 'rgba(255,255,255,0.08)');
+            gradient.addColorStop(0.1, 'rgba(255,255,255,0.01)');
+            gradient.addColorStop(0.9, 'rgba(0,0,0,0.0)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0.4)');
+            ctx.fillStyle = gradient;
+            ctx.roundRect(0, 0, w, h, 32);
+            ctx.fill();
+        }
+
+        // Initialize script execution tracking structures fields logic routines updates layout setup
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            populateModels();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Process | Fortivus UV Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles integrated from the missing style.css */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        
+        .hero-text-glow {
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 80px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Gallery Filter Transitions */
+        .gallery-item {
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .gallery-item.hide-item {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-[#0d0d0d]/70 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.5)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.8)] transition-all duration-500">
+                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-['Space_Grotesk'] tracking-tight">
+                        Fortivus<span class="text-[#a855f7]">.</span>
+                    </span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="services.html" class="text-sm font-medium text-[#a855f7] transition-colors duration-300 relative group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4]"></span>
+                    </a>
+                    <a href="#gallery" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
+                        Gallery
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 transform hover:scale-105">
+                        Start Project
+                    </a>
+                </div>
+
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="md:hidden absolute top-full left-0 w-full bg-[#0d0d0d]/95 backdrop-blur-xl border-b border-white/10 transform translate-y-[-100%] opacity-0 transition-all duration-300 pointer-events-none" id="mobile-menu">
+            <div class="px-6 py-8 flex flex-col gap-4">
+                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10">Home</a>
+                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10 text-[#a855f7]">Services</a>
+                <a href="#gallery" class="text-lg font-medium py-2 border-b border-white/10">Gallery</a>
+                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#a855f7]/10 to-transparent"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6">
+                    <i data-lucide="settings-2" class="w-4 h-4 text-[#a855f7]"></i>
+                    <span class="text-sm font-medium text-gray-300">Our Capabilities</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold font-['Space_Grotesk'] mb-6 hero-text-glow">The UV Process</h1>
+                <p class="text-xl text-gray-400 leading-relaxed">Discover how our A4 UV printing technology transforms flat surfaces into tactile, vibrant experiences with unmatched durability.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="relative group">
+                    <div class="glass-card rounded-2xl p-8 h-full border border-white/10 hover:border-[#a855f7]/50 transition-all duration-500">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#a855f7]/20 to-[#a855f7]/5 border border-[#a855f7]/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-[#a855f7]">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">Design Preparation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">High-resolution artwork preparation with color profiling for optimal UV ink adhesion and vibrancy.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#a855f7]/50 to-transparent"></div>
+                </div>
+
+                <div class="relative group">
+                    <div class="glass-card rounded-2xl p-8 h-full border border-white/10 hover:border-[#06b6d4]/50 transition-all duration-500">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#06b6d4]/20 to-[#06b6d4]/5 border border-[#06b6d4]/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-[#06b6d4]">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">Surface Treatment</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Specialized coating application ensuring perfect ink bonding on acrylic, glass, wood, or plastic surfaces.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
+                </div>
+
+                <div class="relative group">
+                    <div class="glass-card rounded-2xl p-8 h-full border border-white/10 hover:border-[#ec4899]/50 transition-all duration-500">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ec4899]/20 to-[#ec4899]/5 border border-[#ec4899]/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-[#ec4899]">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">UV Printing</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Precision A4 UV flatbed printing with 1440dpi resolution, layer by layer, creating that signature raised texture.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#ec4899]/50 to-transparent"></div>
+                </div>
+
+                <div class="group">
+                    <div class="glass-card rounded-2xl p-8 h-full border border-white/10 hover:border-[#a855f7]/50 transition-all duration-500">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#a855f7]/20 to-[#06b6d4]/5 border border-[#a855f7]/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] to-[#06b6d4]">04</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">Curing & Finishing</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Instant UV light curing creates a scratch-resistant, waterproof finish with vibrant color permanence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold font-['Space_Grotesk'] mb-4">Materials We Master</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Our UV technology prints flawlessly on virtually any surface, creating stunning tactile results.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer">
+                    <img src="https://images.pexels.com/photos/34941865/pexels-photo-34941865.jpeg" alt="Clear Acrylic Block" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-xl font-bold mb-1 font-['Space_Grotesk']">Acrylic</h3>
+                        <p class="text-sm text-gray-400">Crystal clear depth</p>
+                    </div>
+                    <div class="absolute inset-0 border-2 border-[#a855f7]/0 group-hover:border-[#a855f7]/50 rounded-2xl transition-all duration-300"></div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer">
+                    <img src="https://images.pexels.com/photos/19518876/pexels-photo-19518876.jpeg" alt="Textured Glahttps://images.pexels.com/photos/19518876/pexels-photo-19518876.jpegss" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-xl font-bold mb-1 font-['Space_Grotesk']">Glass</h3>
+                        <p class="text-sm text-gray-400">Premium elegance</p>
+                    </div>
+                    <div class="absolute inset-0 border-2 border-[#06b6d4]/0 group-hover:border-[#06b6d4]/50 rounded-2xl transition-all duration-300"></div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer">
+                    <img src="https://images.pexels.com/photos/8341869/pexels-photo-8341869.jpeg" alt="Natural Wood Grain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-xl font-bold mb-1 font-['Space_Grotesk']">Wood</h3>
+                        <p class="text-sm text-gray-400">Natural warmth</p>
+                    </div>
+                    <div class="absolute inset-0 border-2 border-[#ec4899]/0 group-hover:border-[#ec4899]/50 rounded-2xl transition-all duration-300"></div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer">
+                    <img src="https://images.pexels.com/photos/30669280/pexels-photo-30669280.jpeg" alt="Smooth Plastic Surface" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-xl font-bold mb-1 font-['Space_Grotesk']">Plastic</h3>
+                        <p class="text-sm text-gray-400">Durable versatility</p>
+                    </div>
+                    <div class="absolute inset-0 border-2 border-[#a855f7]/0 group-hover:border-[#a855f7]/50 rounded-2xl transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 relative bg-[#0a0a0a]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-['Space_Grotesk'] mb-4">Product Gallery</h2>
+                    <p class="text-gray-400 max-w-xl">Explore our portfolio of UV-printed masterpieces. From corporate branding to personal expression.</p>
+                </div>
+                <div class="flex gap-2 flex-wrap" id="gallery-filters">
+                    <button data-filter="all" class="px-4 py-2 rounded-full bg-[#a855f7]/20 text-[#a855f7] text-sm font-medium border border-[#a855f7]/30 filter-btn transition-all">All</button>
+                    <button data-filter="trays" class="px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-medium border border-white/10 hover:bg-white/10 filter-btn transition-all">Trays</button>
+                    <button data-filter="cases" class="px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-medium border border-white/10 hover:bg-white/10 filter-btn transition-all">Cases</button>
+                    <button data-filter="corporate" class="px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-medium border border-white/10 hover:bg-white/10 filter-btn transition-all">Corporate</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 relative" id="gallery-grid">
+                <div class="gallery-item group relative rounded-2xl overflow-hidden glass-card" data-category="trays">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/29613818/pexels-photo-29613818.jpeg" alt="Executive Serving Tray" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-1">Executive Serving Tray</h3>
+                        <p class="text-gray-400 text-sm mb-3">Acrylic • Gold UV Ink</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#a855f7]/20 text-[#a855f7] text-xs border border-[#a855f7]/30">Custom</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs border border-white/20">Trays</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item group relative rounded-2xl overflow-hidden glass-card" data-category="cases">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/7742548/pexels-photo-7742548.jpeg" alt="UV Phone Case" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-1">Geometric iPhone Case</h3>
+                        <p class="text-gray-400 text-sm mb-3">Polycarbonate • Matte UV</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#06b6d4]/20 text-[#06b6d4] text-xs border border-[#06b6d4]/30">BYOC</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs border border-white/20">Cases</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item group relative rounded-2xl overflow-hidden glass-card" data-category="corporate">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src= "https://images.pexels.com/photos/6849103/pexels-photo-6849103.jpeg" alt="Desk Mousepad" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-1">Extended Gaming Mat</h3>
+                        <p class="text-gray-400 text-sm mb-3">Rubber • Full UV Coverage</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#ec4899]/20 text-[#ec4899] text-xs border border-[#ec4899]/30">Branded</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs border border-white/20">Corporate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item group relative rounded-2xl overflow-hidden glass-card" data-category="trays">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/32617730/pexels-photo-32617730.jpeg" alt="Marble Coasters" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-1">Marble Effect Coasters</h3>
+                        <p class="text-gray-400 text-sm mb-3">Ceramic • Gloss UV</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#a855f7]/20 text-[#a855f7] text-xs border border-[#a855f7]/30">Set of 4</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs border border-white/20">Trays</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item group relative rounded-2xl overflow-hidden glass-card" data-category="corporate">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/38285044/pexels-photo-38285044.jpeg" alt="Corporate Gift Set" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-1">Corporate Gift Set</h3>
+                        <p class="text-gray-400 text-sm mb-3">Mixed Materials • Branding</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#06b6d4]/20 text-[#06b6d4] text-xs border border-[#06b6d4]/30">B2B</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs border border-white/20">Corporate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item group relative rounded-2xl overflow-hidden glass-card" data-category="corporate">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/17210072/pexels-photo-17210072.jpeg" alt="Magnets" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-1">Photo Magnet Collection</h3>
+                        <p class="text-gray-400 text-sm mb-3">Acrylic • Photo UV Print</p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#ec4899]/20 text-[#ec4899] text-xs border border-[#ec4899]/30">Bulk</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs border border-white/20">Corporate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-[#a855f7]/50 text-[#a855f7] font-semibold hover:bg-[#a855f7]/10 transition-all duration-300">
+                    Request Custom Project <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="glass-card rounded-3xl p-8 md:p-12 border border-white/10">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold font-['Space_Grotesk'] mb-6">Technical Specifications</h2>
+                        <p class="text-gray-400 mb-8">Our A4 UV flatbed printer delivers professional-grade results with industrial precision.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-gray-400">Print Resolution</span>
+                                <span class="font-semibold text-[#a855f7]">1440 x 1440 dpi</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-gray-400">Maximum Print Area</span>
+                                <span class="font-semibold text-[#06b6d4]">A4 (210 x 297mm)</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-gray-400">Ink Type</span>
+                                <span class="font-semibold text-[#ec4899]">UV-Curable LED</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-gray-400">Color Gamut</span>
+                                <span class="font-semibold text-[#a855f7]">CMYK + White + Varnish</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-white/10">
+                                <span class="text-gray-400">Layer Height</span>
+                                <span class="font-semibold text-[#06b6d4]">Up to 3mm (Embossed)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20 rounded-3xl blur-xl"></div>
+                        <div class="relative glass-card rounded-2xl p-6 border border-white/20">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=640&q=80" alt="UV Printer Machinery" class="rounded-xl w-full h-auto mb-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Epson A4 UV Setup</h4>
+                                    <p class="text-sm text-gray-400">Professional Grade</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.5)]">
+                                    <i data-lucide="check" class="w-6 h-6 text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                            <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold font-['Space_Grotesk']">Fortivus.</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm">Premium UV printing studio specializing in tactile, high-resolution custom merchandise and branding solutions.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">UV Printing</a></li>
+                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">Custom Trays</a></li>
+                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">Phone Cases</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-6 text-white">Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; <span id="current-year"></span> Fortivus Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+        
+        // Auto-update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+        
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-y-[-100%]', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else {
+                mobileMenu.classList.add('translate-y-[-100%]', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-[0_4px_30px_rgba(0,0,0,0.5)]');
+            } else {
+                navbar.classList.remove('shadow-[0_4px_30px_rgba(0,0,0,0.5)]');
+            }
+        });
+
+        // Functional Gallery Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active classes from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-[#a855f7]/20', 'text-[#a855f7]', 'border-[#a855f7]/30');
+                    b.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
+                this.classList.add('bg-[#a855f7]/20', 'text-[#a855f7]', 'border-[#a855f7]/30');
+
+                // Get filter category
+                const filterValue = this.getAttribute('data-filter');
+
+                // Filter logic
+                galleryItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || filterValue === itemCategory) {
+                        item.classList.remove('hide-item');
+                    } else {
+                        item.classList.add('hide-item');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

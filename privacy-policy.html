@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Asset Protection | Fortivus UV Printing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060608;
+        }
+        .font-grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.15);
+        }
+        .hero-text-glow { 
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.35), 0 0 80px rgba(6, 182, 212, 0.2); 
+        }
+        /* Custom scrollbar to keep layout premium */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060608;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #221a30;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
+        }
+        /* Animated toast system */
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .toast-animate {
+            animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        /* Active sidebar link indicator styling */
+        .sidebar-active {
+            color: #a855f7;
+            border-left-color: #a855f7;
+            background: rgba(168, 85, 247, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-[#060608] text-gray-100 overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-[#060608]/80 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all duration-500">
+                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-grotesk tracking-tight text-white">
+                        Fortivus<span class="text-[#a855f7]">.</span>
+                    </span>
+                </a>
+                                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="index.html#services" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="index.html#gallery" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Gallery
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 transform hover:scale-105">
+                        Start Project
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+                
+        <!-- Mobile Dropdown Menu -->
+        <div class="md:hidden absolute top-full left-0 w-full bg-[#060608]/95 backdrop-blur-xl border-b border-white/10 hidden" id="mobile-menu">
+            <div class="px-6 py-8 flex flex-col gap-4">
+                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Home</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="index.html#services" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Services</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="index.html#gallery" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Gallery</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center shadow-lg">
+                    Start Custom Project
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Segment -->
+    <header class="relative pt-36 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-10 left-1/4 w-72 h-72 bg-[#a855f7]/10 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-[#06b6d4]/10 rounded-full blur-[140px] animate-pulse delay-1000"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.01)_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#a855f7]/10 border border-[#a855f7]/20 text-xs font-semibold text-[#a855f7] uppercase tracking-wider mb-6">
+                <i data-lucide="shield" class="w-3.5 h-3.5"></i> Securing Your Vector Designs
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold font-grotesk tracking-tight mb-4 hero-text-glow">Privacy & Asset Protection</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">
+                At Fortivus, we treat your custom print layouts, vector coordinates, and brand designs with military-grade prepress confidentiality. Learn how we store, cure, and protect your digital assets.
+            </p>
+        </div>
+    </header>
+
+    <!-- Content Segment -->
+    <main class="relative pb-32 z-10 flex-grow">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Sidebar Navigation (Desktop Only) -->
+                    <aside class="lg:col-span-3 hidden lg:block sticky top-28 bg-[#09090c]/40 border border-white/5 p-6 rounded-2xl backdrop-blur-md">
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 pl-3">Sections</h3>
+                        <nav class="space-y-1 flex flex-col border-l border-white/5">
+                            <a href="#art-isolation" class="sidebar-link pl-4 py-2 border-l-2 border-transparent text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all font-medium flex items-center gap-2" onclick="setActiveLink(this)">
+                                <i data-lucide="file-text" class="w-4 h-4"></i> Asset Protection
+                            </a>
+                            <a href="#data-collection" class="sidebar-link pl-4 py-2 border-l-2 border-transparent text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all font-medium flex items-center gap-2" onclick="setActiveLink(this)">
+                                <i data-lucide="eye" class="w-4 h-4"></i> Data Collection
+                            </a>
+                            <a href="#machine-security" class="sidebar-link pl-4 py-2 border-l-2 border-transparent text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all font-medium flex items-center gap-2" onclick="setActiveLink(this)">
+                                <i data-lucide="cpu" class="w-4 h-4"></i> Prepress Curing
+                            </a>
+                            <a href="#compliance" class="sidebar-link pl-4 py-2 border-l-2 border-transparent text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all font-medium flex items-center gap-2" onclick="setActiveLink(this)">
+                                <i data-lucide="globe" class="w-4 h-4"></i> Legal & POPIA
+                            </a>
+                            <a href="#interactive-purge" class="sidebar-link pl-4 py-2 border-l-2 border-transparent text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all font-medium flex items-center gap-2" onclick="setActiveLink(this)">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i> Purge Console
+                            </a>
+                        </nav>
+                    </aside>
+
+                    <!-- Core Policy Text Content -->
+                    <section class="lg:col-span-9 space-y-12">
+                        
+                        <!-- Section 1: Asset Isolation -->
+                        <div id="art-isolation" class="glass-card rounded-2xl p-8 border border-white/5 scroll-mt-28">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7]">
+                                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold font-grotesk text-white">1. Artwork & Design Security</h2>
+                            </div>
+                            <div class="space-y-4 text-gray-400 text-sm leading-relaxed">
+                                <p>
+                                    As a specialized UV production studio, your uploaded vector blueprints (PDF, AI, EPS, DXF) and high-DPI raster templates constitute highly valuable intellectual property. We implement the following stringent handling protocols:
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                                    <li><strong class="text-white">Encrypted Transmission:</strong> All artwork files uploaded via our 3D Studio Customizer or contact portals are packaged dynamically and secured in-transit using Secure Sockets Layer (SSL) encryption protocol.</li>
+                                    <li><strong class="text-white">Prepress Isolation:</strong> Uploaded layouts are transferred strictly to locally closed workstations used by our prepress design technician team. They are never shared on open web networks.</li>
+                                    <li><strong class="text-white">Curing Demolition:</strong> Unless you request archival retention for repeat production batches, <span class="text-[#06b6d4] font-semibold">all technical asset files are automatically deleted from local production queues and secure storage arrays 30 days following project signoff</span>.</li>
+                                </ul>
+                                <div class="mt-4 p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 flex gap-3 text-amber-400/90 text-xs">
+                                    <i data-lucide="alert-triangle" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span><strong>IP Safeguard Notice:</strong> Fortivus does not assume ownership of your design files. All vector profiles, textures, and bespoke layout metrics remain exclusively your intellectual property.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Data Collection -->
+                        <div id="data-collection" class="glass-card rounded-2xl p-8 border border-white/5 scroll-mt-28">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-[#06b6d4]/10 border border-[#06b6d4]/20 flex items-center justify-center text-[#06b6d4]">
+                                    <i data-lucide="eye" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold font-grotesk text-white">2. Collected Parameters</h2>
+                            </div>
+                            <div class="space-y-4 text-gray-400 text-sm leading-relaxed">
+                                <p>
+                                    We collect dynamic variables to deliver precise structural quote estimates and calibrate physical flatbed dimensions. This data consists of:
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                                        <h4 class="font-semibold text-white mb-2 text-xs uppercase tracking-wider text-[#a855f7]">Interactive Design Telemetry</h4>
+                                        <p class="text-xs text-gray-400">Settings established inside our interactive 3D studio, such as spot gloss percentage coverage, targeted material substrate (walnut wood, glass, acrylic), and required layering depth metrics ($0.1mm - 1.5mm$).</p>
+                                    </div>
+                                    <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                                        <h4 class="font-semibold text-white mb-2 text-xs uppercase tracking-wider text-[#06b6d4]">Identity Parameters</h4>
+                                        <p class="text-xs text-gray-400">Basic contact fields required to communicate project states: Name, business email channels, valid phone codes, delivery locations, and unique pre-flight identifier codes.</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 italic mt-2">
+                                    Cookies are used on this application strictly to keep hold of your interactive customizer state so that your loaded project is preserved if you refresh your browser window. No diagnostic code trackings are leaked to third-party ad networks.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Machine & Prepress Security -->
+                        <div id="machine-security" class="glass-card rounded-2xl p-8 border border-white/5 scroll-mt-28">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-[#ec4899]/10 border border-[#ec4899]/20 flex items-center justify-center text-[#ec4899]">
+                                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold font-grotesk text-white">3. Prepress Curing Standards</h2>
+                            </div>
+                            <div class="space-y-4 text-gray-400 text-sm leading-relaxed">
+                                <p>
+                                    Our operational flatbed curing hardware uses secure direct system-links. Unlike cloud-managed printing solutions prone to internet intercepts, our machinery acts within a local closed loop network:
+                                </p>
+                                <div class="border-l-2 border-[#ec4899] pl-4 space-y-2">
+                                    <p class="text-gray-300"><strong>Closed RIP Systems:</strong> Standard digital print software operates network-shared layout queues. Our raster image processors (RIP) isolate layout conversions into closed physical drives directly connected to the flatbed laser controllers.</p>
+                                    <p class="text-gray-300"><strong>Hardware Purging:</strong> Physical print memory modules inside our variable height LED systems are cleared down after each printing pass is compiled.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 4: POPIA & Global Protections -->
+                        <div id="compliance" class="glass-card rounded-2xl p-8 border border-white/5 scroll-mt-28">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold font-grotesk text-white">4. Regulatory Compliance & South African POPIA</h2>
+                            </div>
+                            <div class="space-y-4 text-gray-400 text-sm leading-relaxed">
+                                <p>
+                                    As a physical studio operating out of East London, South Africa, Fortivus is structured to achieve strict compliance with local and international framework mandates:
+                                </p>
+                                <ul class="space-y-3">
+                                    <li class="flex gap-2 items-start text-xs">
+                                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Protection of Personal Information Act (POPIA):</strong> All data collection profiles are captured and stored transparently under Information Officer parameters. Clients can request instant records of personal identity details or register formal erasure demands.</span>
+                                    </li>
+                                    <li class="flex gap-2 items-start text-xs">
+                                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">GDPR Accordance:</strong> European vector design partners retain complete access rights, secure portability rights over files, and immediate right to absolute deletion before the standard 30-day curing cycle ends.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Section 5: INTERACTIVE ARTWORK PURGE CONSOLE -->
+                        <div id="interactive-purge" class="relative scroll-mt-28">
+                            <!-- Glowing pink border accent to highlight interactive component -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-[#ec4899]/10 to-[#a855f7]/10 rounded-3xl blur-md opacity-75"></div>
+                            
+                            <div class="relative glass-card rounded-2xl p-8 border border-white/10">
+                                <div class="flex items-center gap-3 mb-6">
+                                    <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
+                                        <i data-lucide="trash-2" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-2xl font-bold font-grotesk text-white">Active Pre-Flight Purge Console</h2>
+                                        <p class="text-xs text-gray-500 font-mono mt-0.5">Instant asset destruction trigger tool</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-6 text-sm text-gray-400">
+                                    <p>
+                                        Do you have a pending project brief or custom vector assets queued inside our pre-flight trackers that you would like destroyed immediately? Use this form to register an urgent request.
+                                    </p>
+                                    
+                                    <div class="bg-black/30 p-5 rounded-xl border border-white/5 space-y-4">
+                                        <form id="purge-simulation-form" onsubmit="handlePurgeRequest(event)" class="space-y-3">
+                                            <div class="grid md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase tracking-wider">Your Registered Email</label>
+                                                    <input type="email" id="purge-email" required placeholder="client@domain.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs focus:border-[#ec4899] focus:outline-none text-white">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase tracking-wider">Queue ID / Brief ID (Optional)</label>
+                                                    <input type="text" id="purge-brief-id" placeholder="FTV-2026-X94B" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs focus:border-[#ec4899] focus:outline-none text-white font-mono">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-2 py-1">
+                                                <input type="checkbox" id="purge-confirm" required class="w-3.5 h-3.5 rounded border-white/10 bg-white/5 accent-[#ec4899] cursor-pointer">
+                                                <label for="purge-confirm" class="text-xs text-gray-500 cursor-pointer">I confirm that I wish to completely destroy all raw prepress vectors and raster designs associated with this email profile.</label>
+                                            </div>
+                                            
+                                            <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-rose-500/20 to-[#ec4899]/20 hover:from-rose-500 hover:to-[#ec4899] border border-rose-500/30 text-rose-300 hover:text-white font-semibold text-xs transition-all duration-300 flex items-center justify-center gap-2">
+                                                <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                                                <span>Execute Pre-Flight Purge Protocol</span>
+                                            </button>
+                                        </form>
+                                        
+                                        <!-- Post-submit success panel -->
+                                        <div id="purge-success" class="hidden text-center py-4 space-y-3">
+                                            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400">
+                                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-white text-sm">Purge Pipeline Registered</h4>
+                                                <p class="text-xs text-gray-400 mt-1 max-w-md mx-auto">
+                                                    An automated verification token has been routed to <strong class="text-white" id="success-target-email">your email</strong>. Click the confirmation seal to isolate and wipe your production directories.
+                                                </p>
+                                            </div>
+                                            <button onclick="resetPurgeForm()" class="text-xs text-[#06b6d4] hover:underline font-semibold mt-2">
+                                                Register another request
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-16 pb-8 bg-[#060608]">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                            <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold font-grotesk text-white">Fortivus.</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm text-sm">Premium UV printing studio specializing in tactile, high-resolution physical layers and custom boutique merchandise.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm">Services</h4>
+                    <ul class="space-y-3 text-gray-400 text-xs">
+                        <li><a href="index.html#services" class="hover:text-[#a855f7] transition-colors">Tactile Layering</a></li>
+                        <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Custom Wood Trays</a></li>
+                        <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Phone Shells</a></li>
+                        <li><a href="index.html#services" class="hover:text-[#a855f7] transition-colors">Corporate Branding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm">Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-xs">
+                        <li><a href="index.html" class="hover:text-[#a855f7] transition-colors">Home</a></li>
+                        <li><a href="Technical Spec.html" class="hover:text-[#a855f7] transition-colors">Studio Specs</a></li>
+                        <li><a href="index.html#gallery" class="hover:text-[#a855f7] transition-colors">Gallery</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-[#a855f7] transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs">&copy; <script>document.write(new Date().getFullYear())</script> Fortivus Technologies. All rights reserved</p>
+                <div class="flex gap-6 text-xs text-gray-500">
+                    <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="index.html#contact" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLASS TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+
+    <script>
+        // Setup Lucide Icons on DOM load
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initScrollSpy();
+        });
+
+        // TOAST ENGINE (Replaces alerts)
+        function showToast(title, text, type = 'info') {
+            const toastContainer = document.getElementById('toast-container');
+            if (!toastContainer) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'glass-card p-4 rounded-2xl flex gap-3 shadow-2xl border border-white/10 toast-animate bg-black/95 select-none pointer-events-auto';
+            
+            const icons = {
+                success: '<i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>',
+                info: '<i data-lucide="info" class="w-5 h-5 text-[#06b6d4]"></i>',
+                warning: '<i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500"></i>'
+            };
+
+            toast.innerHTML = `
+                <div class="flex-shrink-0 mt-0.5">${icons[type] || icons.info}</div>
+                <div class="flex-grow">
+                    <h4 class="text-sm font-bold text-white">${title}</h4>
+                    <p class="text-xs text-gray-400 mt-1">${text}</p>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2', 'transition-all', 'duration-500');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 3500);
+        }
+
+        // MOBILE NAVIGATION BAR ACTIONS
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // SCROLLSPY INTERACTION MECHANISM FOR DETAILED POLICY READING
+        function initScrollSpy() {
+            const sections = document.querySelectorAll('section > div');
+            const navLinks = document.querySelectorAll('.sidebar-link');
+
+            window.addEventListener('scroll', () => {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Trigger adjustment
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('sidebar-active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('sidebar-active');
+                    }
+                });
+            });
+        }
+
+        function setActiveLink(element) {
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('sidebar-active');
+            });
+            element.classList.add('sidebar-active');
+        }
+
+        // INTERACTIVE PURGE HANDLERS
+        function handlePurgeRequest(event) {
+            event.preventDefault();
+            const targetEmail = document.getElementById('purge-email').value;
+
+            // Transmit visual adjustments
+            document.getElementById('purge-simulation-form').classList.add('hidden');
+            document.getElementById('purge-success').classList.remove('hidden');
+            document.getElementById('success-target-email').textContent = targetEmail;
+
+            showToast(
+                'Purge Sequence Init',
+                `A security confirmation vector has been transmitted to ${targetEmail}.`,
+                'success'
+            );
+        }
+
+        function resetPurgeForm() {
+            const form = document.getElementById('purge-simulation-form');
+            form.reset();
+
+            document.getElementById('purge-success').classList.add('hidden');
+            form.classList.remove('hidden');
+        }
+
+        // SCROLL CONTROLLER
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl', 'bg-black/40');
+            } else {
+                navbar.classList.remove('shadow-2xl', 'bg-black/40');
+            }
+        });
+    </script>
+</body>
+</html>

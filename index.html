@@ -1,0 +1,347 @@
+uu<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortivus | Premium UV Printing Studio in East London</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .hero-text-glow { text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 80px rgba(6, 182, 212, 0.3); }
+    </style>
+</head>
+<body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-[#0d0d0d]/70 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.5)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.8)] transition-all duration-500">
+                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-['Space_Grotesk'] tracking-tight">
+                        Fortivus<span class="text-[#a855f7]">.</span>
+                    </span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="services.html#gallery" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
+                        Gallery
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 transform hover:scale-105">
+                        Start Project
+                    </a>
+                </div>
+
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="md:hidden absolute top-full left-0 w-full bg-[#0d0d0d]/95 backdrop-blur-xl border-b border-white/10 transform translate-y-[-100%] opacity-0 transition-all duration-300 pointer-events-none" id="mobile-menu">
+            <div class="px-6 py-8 flex flex-col gap-4">
+                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10">Home</a>
+                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10">Services</a>
+                <a href="services.html#gallery" class="text-lg font-medium py-2 border-b border-white/10">Gallery</a>
+                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-[#a855f7]/20 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#06b6d4]/20 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 hover:bg-white/10 transition-all cursor-pointer group">
+                    <span class="w-2 h-2 rounded-full bg-[#a855f7] animate-pulse"></span>
+                    <span class="text-sm font-medium text-gray-300">Premium A4 UV Technology Available in East London</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-[#a855f7] group-hover:translate-x-1 transition-transform"></i>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold font-['Space_Grotesk'] leading-tight mb-6 hero-text-glow">
+                    Vibrant. Durable.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#06b6d4]">Tactile.</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    Premium UV Printing Reimagined. Experience the raised, textured quality of high-resolution A4 UV printing on any surface.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="contact.html" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-lg hover:shadow-[0_0_40px_rgba(168,85,247,0.6)] transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                        <span>Start Your Project</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="services.html" class="px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/5 backdrop-blur-sm transition-all duration-300 flex items-center gap-2 group">
+                        <span>Explore Services</span>
+                        <i data-lucide="play-circle" class="w-5 h-5 group-hover:text-[#a855f7] transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+        </div>
+    </section>
+
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold font-['Space_Grotesk'] mb-4">Signature Collections</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Bespoke UV-printed products that transform ordinary surfaces into extraordinary tactile experiences.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative glass-card rounded-2xl overflow-hidden h-full">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.pexels.com/photos/10545937/pexels-photo-10545937.jpeg" alt="Custom UV Printed Trays and Organizers" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-[#a855f7]"></i>
+                                <span class="text-[#a855f7] text-sm font-semibold uppercase tracking-wider">Flagship</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 font-['Space_Grotesk']">Custom-Made Trays</h3>
+                            <p class="text-gray-400 mb-6 leading-relaxed">High-end bespoke tray designs featuring raised UV textures. Perfect for luxury serving, jewelry display, or branded corporate gifts.</p>
+                            <a href="contact.html?product=trays" class="inline-flex items-center gap-2 text-[#06b6d4] font-semibold hover:gap-3 transition-all">
+                                Inquire Now <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-[#06b6d4] to-[#a855f7] rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative glass-card rounded-2xl overflow-hidden h-full">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.pexels.com/photos/6071018/pexels-photo-6071018.jpeg" alt="Premium Custom Devices and Tech Artwork" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i data-lucide="smartphone" class="w-5 h-5 text-[#06b6d4]"></i>
+                                <span class="text-[#06b6d4] text-sm font-semibold uppercase tracking-wider">BYOC Service</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 font-['Space_Grotesk']">Premium Phone Cases</h3>
+                            <p class="text-gray-400 mb-6 leading-relaxed">Bring Your Own Case service with scratch-resistant UV coating. Transform your device with durable, high-definition custom artwork.</p>
+                            <a href="contact.html?product=cases" class="inline-flex items-center gap-2 text-[#06b6d4] font-semibold hover:gap-3 transition-all">
+                                Customize Yours <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-[#a855f7] to-[#ec4899] rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative glass-card rounded-2xl overflow-hidden h-full">
+                        <div class="aspect-[4/3] overflow-hidden">
+                            <img src="https://images.pexels.com/photos/12369901/pexels-photo-12369901.jpeg" alt="Modern Minimalist Desk Accessories" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i data-lucide="monitor" class="w-5 h-5 text-[#ec4899]"></i>
+                                <span class="text-[#ec4899] text-sm font-semibold uppercase tracking-wider">Workspace</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 font-['Space_Grotesk']">Desktop Essentials</h3>
+                            <p class="text-gray-400 mb-6 leading-relaxed">Custom mousepads, coasters, and fridge magnets with tactile UV printing. Elevate your workspace with personalized precision.</p>
+                            <a href="contact.html?product=desktop" class="inline-flex items-center gap-2 text-[#ec4899] font-semibold hover:gap-3 transition-all">
+                                View Collection <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0d0d0d] via-[#1a0b2e] to-[#0d0d0d] opacity-50"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold font-['Space_Grotesk'] mb-6">The A4 UV Advantage</h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">Our high-resolution A4 UV printing technology creates more than just images—it creates texture. Feel the difference with raised, durable prints that last.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-[#a855f7]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">Scratch-Resistant Coating</h4>
+                                <p class="text-gray-400">UV-cured ink creates a hard, protective surface that resists daily wear and tear.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 border border-[#06b6d4]/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="maximize" class="w-6 h-6 text-[#06b6d4]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">High-Resolution Detail</h4>
+                                <p class="text-gray-400">1440dpi precision captures every gradient and fine line with photographic quality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#ec4899]/10 border border-[#ec4899]/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="layers" class="w-6 h-6 text-[#ec4899]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">Multi-Surface Mastery</h4>
+                                <p class="text-gray-400">Print on acrylic, glass, wood, plastic, metal, and more with perfect adhesion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="services.html" class="inline-flex items-center gap-2 mt-10 px-8 py-4 rounded-full border border-[#a855f7]/50 text-[#a855f7] font-semibold hover:bg-[#a855f7]/10 transition-all duration-300">
+                        Explore Our Process <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20 rounded-3xl blur-2xl"></div>
+                    <div class="relative glass-card rounded-3xl p-2">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1024&q=80" alt="Precision Detailed Flatbed Tech and Printing Surface" class="rounded-2xl w-full h-auto shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 glass-card rounded-2xl p-4 border border-[#a855f7]/30">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-[#a855f7] animate-pulse"></div>
+                                <span class="text-sm font-semibold">UV Curing Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6">
+            <div class="relative rounded-3xl overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20"></div>
+                <div class="absolute inset-0 backdrop-blur-3xl bg-[#0d0d0d]/40"></div>
+                
+                <div class="relative z-10 px-8 py-20 md:px-20 text-center">
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] mb-6">Ready to Feel the Difference?</h2>
+                    <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Transform your products with premium UV printing. Whether it's a single custom piece or a bulk business order, we bring your vision to life with texture and brilliance.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="px-10 py-5 rounded-full bg-white text-[#0d0d0d] font-bold text-lg hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 transform hover:scale-105">
+                            Get a Quote
+                        </a>
+                        <a href="services.html#gallery" class="px-10 py-5 rounded-full border border-white/30 text-white font-bold text-lg hover:bg-white/10 transition-all duration-300">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                            <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold font-['Space_Grotesk']">Fortivus.</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm">Premium UV printing studio specializing in tactile, high-resolution custom merchandise and branding solutions.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7/50 transition-all">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-6 text-white">Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">UV Printing</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Custom Trays</a></li>
+                        <li><a href="phone-cases.html" class="hover:text-[#a855f7] transition-colors">Phone Cases</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Corporate Gifts</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-6 text-white">Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="services.html#gallery" class="hover:text-[#a855f7] transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Contact</a></li>
+                        <li><a href="about.html" class="hover:text-[#a855f7] transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; <script>document.write(new Date().getFullYear())</script> Fortivus Technologies. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+        
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-y-[-100%]', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else {
+                mobileMenu.classList.add('translate-y-[-100%]', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

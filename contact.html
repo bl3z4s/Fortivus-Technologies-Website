@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Fortivus UV Printing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060608;
+        }
+        .font-grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.15);
+        }
+        .hero-text-glow { 
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.35), 0 0 80px rgba(6, 182, 212, 0.2); 
+        }
+        /* Premium custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060608;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #221a30;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
+        }
+        /* Animated toast system */
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .toast-animate {
+            animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        /* FAQ accordion transition details */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-active .accordion-content {
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body class="bg-[#060608] text-gray-100 overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-[#060608]/80 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10">
+            <div class="flex justify-between items-center">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all duration-500">
+                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-grotesk tracking-tight text-white">
+                        Fortivus<span class="text-[#a855f7]">.</span>
+                    </span>
+                </a>
+                                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="services.html#gallery" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
+                        Gallery
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 transform hover:scale-105">
+                        Start Project
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+                
+        <!-- Mobile Dropdown Menu -->
+        <div class="md:hidden absolute top-full left-0 w-full bg-[#060608]/95 backdrop-blur-xl border-b border-white/10 hidden" id="mobile-menu">
+            <div class="px-6 py-8 flex flex-col gap-4">
+                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Home</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Services</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="services.html#gallery" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
+                    <span>Gallery</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
+                </a>
+                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center shadow-lg">
+                    Start Custom Project
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="relative pt-32 pb-20 flex-grow">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#a855f7]/5 to-transparent z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    
+                    <!-- Contact Info Block -->
+                    <div>
+                        <h1 class="text-5xl md:text-6xl font-bold font-grotesk tracking-tight mb-6 hero-text-glow">Start Your Project</h1>
+                        <p class="text-xl text-gray-400 mb-12 font-light leading-relaxed">Ready to transform your ideas into tactile reality? Fill out the form and our studio prepress technicians will analyze your project brief within 24 hours.</p>
+                        
+                        <div class="space-y-8 mb-12">
+                            <!-- Email -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/30 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6 text-[#a855f7]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white mb-1">Email Us</h4>
+                                    <a href="mailto:hello@fortivus.ink" class="text-gray-400 hover:text-[#a855f7] transition-colors">hello@fortivus.ink</a>
+                                    <p class="text-gray-500 text-sm mt-0.5">24 hour response time</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 border border-[#06b6d4]/30 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-[#06b6d4]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white mb-1">Call Us</h4>
+                                    <a href="tel:+27815147215" class="text-gray-400 hover:text-[#06b6d4] transition-colors">+27 81 514 7215</a>
+                                    <p class="text-gray-500 text-sm mt-0.5">Mon-Fri, 9am-6pm SAT</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Location -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#ec4899]/10 border border-[#ec4899]/30 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-[#ec4899]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-white mb-1">Visit Studio</h4>
+                                    <p class="text-gray-400">Riverglen Estate</p>
+                                    <p class="text-gray-500 text-sm">Amalinda, East London, 5247</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Links with custom SVG icons (resolving blank icon bug) -->
+                        <div class="space-y-4">
+                            <h4 class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Connect with our Studio</h4>
+                            <div class="flex gap-4">
+                                <!-- Facebook Link -->
+                                <a href="https://www.facebook.com/profile.php?id=61585484715006" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'Facebook', 'Fortivus UV Printing Studio')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#06b6d4] transition-all" aria-label="Visit Fortivus on Facebook">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </a>
+
+                               <!--  Instagram Link
+                                <a href="https://instagram.com/fortivus.studio" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'Instagram', '@fortivus.studio')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#a855f7] transition-all" aria-label="Visit Fortivus on Instagram">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+
+                                LinkedIn Link
+                                <a href="https://linkedin.com/company/fortivus-uv-printing" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'LinkedIn', 'Fortivus UV Printing Studio')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#06b6d4] transition-all" aria-label="Connect on LinkedIn">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+
+                                Twitter/X Link
+                                <a href="https://x.com/fortivus_studio" target="_blank" rel="noopener noreferrer" onclick="handleSocialClick(event, 'X (Twitter)', '@fortivus_studio')" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#a855f7]/20 hover:border-[#a855f7]/50 hover:text-[#ec4899] transition-all" aria-label="Follow on X">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                                        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                                    </svg>
+                                </a> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Card -->
+                    <div class="relative">
+                        <!-- Glow behind card -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-[#a855f7]/10 to-[#06b6d4]/10 rounded-3xl blur-xl opacity-75"></div>
+                        
+                        <div class="relative glass-card rounded-3xl p-8 border border-white/10 transition-all duration-500" id="form-container">
+                            
+                            <!-- Success Panel (Hidden by default) -->
+                            <div id="success-panel" class="hidden text-center py-12 space-y-6">
+                                <div class="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+                                    <i data-lucide="check-circle" class="w-10 h-10 text-emerald-400"></i>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-3xl font-bold font-grotesk text-white">Project Received!</h3>
+                                    <p class="text-gray-400 max-w-sm mx-auto text-sm leading-relaxed">Thank you, <span id="summary-name" class="text-white font-semibold">Client</span>. Your request has been queued in our production pre-flight tracker.</p>
+                                </div>
+                                
+                                <div class="p-5 bg-white/5 rounded-2xl border border-white/5 text-left text-xs space-y-2 max-w-sm mx-auto">
+                                    <p class="text-gray-500 uppercase font-mono tracking-widest text-[10px]">Technical Specs Saved</p>
+                                    <p class="text-gray-300"><strong>Requested Service:</strong> <span id="summary-service" class="text-white">Custom Project</span></p>
+                                    <p class="text-gray-300"><strong>Pre-Flight ID:</strong> <span class="font-mono text-[#06b6d4]">FTV-2026-X94B</span></p>
+                                </div>
+
+                                <button onclick="resetContactForm()" class="px-6 py-2.5 rounded-full border border-white/10 hover:bg-white/5 text-sm font-semibold text-white transition-all">
+                                    Submit Another Inquiry
+                                </button>
+                            </div>
+
+                            <!-- Real Form -->
+                            <form id="contact-form" class="space-y-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                                        <input type="text" id="form-name" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#a855f7] focus:ring-1 focus:ring-[#a855f7] focus:outline-none transition-all text-sm" placeholder="John Doe">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                        <input type="email" id="form-email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#a855f7] focus:ring-1 focus:ring-[#a855f7] focus:outline-none transition-all text-sm" placeholder="john@example.com">
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300 mb-2">Phone</label>
+                                        <input type="tel" id="form-phone" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#a855f7] focus:ring-1 focus:ring-[#a855f7] focus:outline-none transition-all text-sm" placeholder="+27 (00) 000-0000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300 mb-2">Service Type</label>
+                                        <div class="relative">
+                                            <select required id="form-service" class="w-full px-4 py-3 rounded-xl bg-[#0d0d12] border border-white/10 text-white focus:border-[#a855f7] focus:ring-1 focus:ring-[#a855f7] focus:outline-none transition-all text-sm appearance-none cursor-pointer">
+                                                <option value="" disabled selected>Select a service</option>
+                                                <option value="Phone Case Printing">Phone Case Printing</option>
+                                                <option value="Custom Trays">Custom Trays</option>
+                                                <option value="Desktop Accessories">Desktop Accessories</option>
+                                                <option value="Corporate Gifts">Corporate Gifts</option>
+                                                <option value="Art Reproduction">Art Reproduction</option>
+                                                <option value="Custom Project">Custom Project</option>
+                                            </select>
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
+                                    <textarea rows="4" id="form-details" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#a855f7] focus:ring-1 focus:ring-[#a855f7] focus:outline-none transition-all text-sm resize-none" placeholder="Tell us about your project requirements, including quantity, desired substrate materials, or sizing bounds..."></textarea>
+                                </div>
+
+                                <!-- File Upload Area with drag and drop support -->
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-300">Artwork / Assets</label>
+                                    <div id="drop-zone" class="p-6 rounded-xl bg-white/5 border border-dashed border-white/10 text-center cursor-pointer hover:bg-white/10 hover:border-[#a855f7]/50 transition-all">
+                                        <input type="file" id="file-input" class="hidden" accept=".png,.jpg,.jpeg,.pdf">
+                                        <div id="upload-prompt" class="space-y-2">
+                                            <i data-lucide="upload-cloud" class="w-8 h-8 mx-auto text-gray-400"></i>
+                                            <p class="text-sm text-gray-400">Drop vector files here or click to upload</p>
+                                            <p class="text-xs text-gray-500">PNG, JPG, PDF up to 10MB</p>
+                                        </div>
+                                        <div id="upload-success" class="hidden flex items-center justify-between bg-black/40 p-3 rounded-xl border border-white/5">
+                                            <div class="flex items-center gap-3">
+                                                <i data-lucide="file" class="w-5 h-5 text-[#06b6d4]"></i>
+                                                <div class="text-left">
+                                                    <p class="text-xs font-semibold text-white truncate max-w-[180px]" id="file-name">filename.png</p>
+                                                    <p class="text-[10px] text-gray-500" id="file-size">1.2 MB</p>
+                                                </div>
+                                            </div>
+                                            <button type="button" id="remove-file-btn" class="p-1 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-all">
+                                                <i data-lucide="trash-2" class="w-4 h-4 text-rose-400"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                                    <span>Send Project Brief</span>
+                                    <i data-lucide="send" class="w-5 h-5"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 relative bg-[#09090c] border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold font-grotesk tracking-tight mb-12 text-center text-white">Frequently Asked Questions</h2>
+                
+                <div class="space-y-4" id="faq-accordion-group">
+                    <!-- FAQ 1 -->
+                    <div class="glass-card rounded-xl border border-white/10 cursor-pointer overflow-hidden transition-all duration-300 hover:border-[#a855f7]/30" onclick="toggleAccordion(this)">
+                        <div class="p-6 flex justify-between items-center select-none">
+                            <h3 class="font-semibold text-white flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-5 h-5 text-[#a855f7] flex-shrink-0"></i>
+                                <span>What file formats do you accept for UV prints?</span>
+                            </h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-400 text-sm pl-14 pb-6 leading-relaxed">
+                                We accept high-resolution raster files (PNG, JPG, TIFF) as well as vector formats (PDF, AI, EPS). For optimal print resolution and zero bleeding, we recommend vector documents or high-DPI images exported at 300 DPI or higher.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="glass-card rounded-xl border border-white/10 cursor-pointer overflow-hidden transition-all duration-300 hover:border-[#06b6d4]/30" onclick="toggleAccordion(this)">
+                        <div class="p-6 flex justify-between items-center select-none">
+                            <h3 class="font-semibold text-white flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-5 h-5 text-[#06b6d4] flex-shrink-0"></i>
+                                <span>How long does flatbed UV curing take?</span>
+                            </h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-400 text-sm pl-14 pb-6 leading-relaxed">
+                                Standard turnaround for flatbed production is 3-5 business days from layout signoff. Rush processing options are available for emergency projects requiring same-day or next-day turnaround.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="glass-card rounded-xl border border-white/10 cursor-pointer overflow-hidden transition-all duration-300 hover:border-[#ec4899]/30" onclick="toggleAccordion(this)">
+                        <div class="p-6 flex justify-between items-center select-none">
+                            <h3 class="font-semibold text-white flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-5 h-5 text-[#ec4899] flex-shrink-0"></i>
+                                <span>Can I provide my own items (BYOC) to print?</span>
+                            </h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="text-gray-400 text-sm pl-14 pb-6 leading-relaxed">
+                                Yes! Our Bring Your Own Case (BYOC) service is designed specifically for this. We can print directly onto wood trays, phone blocks, glass panels, or metals up to a maximum height clearance of 45mm.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-16 pb-8 bg-[#060608]">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                            <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold font-grotesk text-white">Fortivus.</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm text-sm">Premium UV printing studio specializing in tactile, high-resolution physical layers and custom boutique merchandise.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm">Services</h4>
+                    <ul class="space-y-3 text-gray-400 text-xs">
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Tactile Layering</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Custom Wood Trays</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Phone Shells</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Corporate Branding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm">Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-xs">
+                        <li><a href="index.html" class="hover:text-[#a855f7] transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-[#a855f7] transition-colors">Studio Specs</a></li>
+                        <li><a href="services.html#gallery" class="hover:text-[#a855f7] transition-colors">Gallery</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-[#a855f7] transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs">&copy; 2026 Fortivus Studio Technologies. Dedicated High-Resolution UV Printing Flatbeds.</p>
+                <div class="flex gap-6 text-xs text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLASS TOAST CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none max-w-sm w-full"></div>
+
+
+    <script>
+        // STATE ARCHITECTURE
+        const FORM_STATE = {
+            hasAttachedFile: false,
+            fileName: '',
+            fileSize: ''
+        };
+
+        // On DOM Loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initDragAndDrop();
+        });
+
+        // PREMIUM GLASS TOAST MESSAGES SYSTEM (Safer replacement for forbidden alerts)
+        function showToast(title, text, type = 'info') {
+            const toastContainer = document.getElementById('toast-container');
+            if (!toastContainer) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'glass-card p-4 rounded-2xl flex gap-3 shadow-2xl border border-white/10 toast-animate bg-black/95 select-none pointer-events-auto';
+            
+            const icons = {
+                success: '<i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>',
+                info: '<i data-lucide="info" class="w-5 h-5 text-[#06b6d4]"></i>',
+                warning: '<i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500"></i>'
+            };
+
+            toast.innerHTML = `
+                <div class="flex-shrink-0 mt-0.5">${icons[type] || icons.info}</div>
+                <div class="flex-grow">
+                    <h4 class="text-sm font-bold text-white">${title}</h4>
+                    <p class="text-xs text-gray-400 mt-1">${text}</p>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2', 'transition-all', 'duration-500');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 3500);
+        }
+
+        // SOCIAL CHANNEL INTERACTION HANDLER
+        function handleSocialClick(event, platform, handle) {
+            // Prevent default behavior to keep user securely on page
+            if (window.self !== window.top) {
+                event.preventDefault();
+            }
+            showToast(
+                `Connecting to ${platform}`, 
+                `Navigating to simulated channel ${handle}. Follow us for high-definition UV production updates!`, 
+                'info'
+            );
+        }
+
+        // MOBILE MENU TRIGGER
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // ACCORDION TOGGLER
+        function toggleAccordion(element) {
+            const group = document.getElementById('faq-accordion-group');
+            const items = group.querySelectorAll('.glass-card');
+            
+            items.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('accordion-active');
+                    const otherChevron = item.querySelector('[data-lucide="chevron-down"]');
+                    if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            element.classList.toggle('accordion-active');
+            const chevron = element.querySelector('[data-lucide="chevron-down"]');
+            
+            if (chevron) {
+                if (element.classList.contains('accordion-active')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                } else {
+                    chevron.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        // FILE DRAG AND DROP UTILS
+        function initDragAndDrop() {
+            const dropZone = document.getElementById('drop-zone');
+            const fileInput = document.getElementById('file-input');
+            const removeBtn = document.getElementById('remove-file-btn');
+
+            if (!dropZone || !fileInput) return;
+
+            // Trigger file dialog
+            dropZone.addEventListener('click', (e) => {
+                if (e.target.closest('#upload-success')) return; // prevent loop if user clicks successful file block details
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleUploadedFiles(e.target.files);
+            });
+
+            // Prevent browser drops opening files
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Highlighting drop area on drag
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.add('border-[#a855f7]', 'bg-white/10');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.remove('border-[#a855f7]', 'bg-white/10');
+                }, false);
+            });
+
+            // Handle dropped items
+            dropZone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleUploadedFiles(files);
+            }, false);
+
+            // Removing file interaction
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clearUploadedFiles();
+            });
+        }
+
+        function handleUploadedFiles(files) {
+            if (files.length === 0) return;
+            const file = files[0];
+
+            // Limit validation
+            if (file.size > 10 * 1024 * 1024) {
+                showToast('Upload Error', 'Document bounds exceeded. Limit asset files to 10MB or below.', 'warning');
+                return;
+            }
+
+            FORM_STATE.hasAttachedFile = true;
+            FORM_STATE.fileName = file.name;
+            FORM_STATE.fileSize = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+
+            // Swap visual structures
+            document.getElementById('upload-prompt').classList.add('hidden');
+            document.getElementById('upload-success').classList.remove('hidden');
+            document.getElementById('file-name').textContent = FORM_STATE.fileName;
+            document.getElementById('file-size').textContent = FORM_STATE.fileSize;
+
+            showToast('Asset Attached', `Successfully parsed file: "${FORM_STATE.fileName}"`, 'success');
+        }
+
+        function clearUploadedFiles() {
+            FORM_STATE.hasAttachedFile = false;
+            FORM_STATE.fileName = '';
+            FORM_STATE.fileSize = '';
+
+            document.getElementById('file-input').value = '';
+            document.getElementById('upload-prompt').classList.remove('hidden');
+            document.getElementById('upload-success').classList.add('hidden');
+            
+            showToast('Asset Removed', 'Brief graphics file attachments cleared.', 'info');
+        }
+
+        // FORM SUBMISSION HANDLE
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Extract dynamic input strings safely
+            const nameInput = document.getElementById('form-name').value;
+            const serviceInput = document.getElementById('form-service').value;
+
+            // Render Success visual metrics
+            document.getElementById('summary-name').textContent = nameInput;
+            document.getElementById('summary-service').textContent = serviceInput;
+
+            // Transition DOM elements gracefully
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('success-panel').classList.remove('hidden');
+
+            showToast('Form Submitted', `Welcome aboard, ${nameInput}! Your print details are validated.`, 'success');
+        });
+
+        // Form Reset Functionality
+        function resetContactForm() {
+            const form = document.getElementById('contact-form');
+            form.reset();
+            clearUploadedFiles();
+
+            document.getElementById('success-panel').classList.add('hidden');
+            form.classList.remove('hidden');
+        }
+
+        // NAVBAR DECORATOR ON SCROLL
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl', 'bg-black/40');
+            } else {
+                navbar.classList.remove('shadow-2xl', 'bg-black/40');
+            }
+        });
+    </script>
+</body>
+</html>

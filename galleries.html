@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | Fortivus Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .gallery-item { transition: all 0.3s ease; }
+        .hide-item { display: none; }
+    </style>
+</head>
+<body class="bg-[#0d0d0d] text-gray-100">
+
+    <nav class="fixed w-full z-50 top-0 border-b border-white/5 bg-[#0d0d0d]/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tighter">FORTIVUS</a>
+            <div class="space-x-8 text-sm font-medium">
+                <a href="services.html" class="hover:text-purple-400 transition">Services</a>
+                <a href="galleries.html" class="text-purple-400">Portfolio</a>
+                <a href="contact.html" class="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200">Order Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 container mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-bold mb-6">Our Work</h1>
+            <p class="text-gray-400 max-w-lg mx-auto">Explore our portfolio of high-precision UV printing projects.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button data-filter="all" class="filter-btn px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/20 text-purple-400 transition">All Projects</button>
+            <button data-filter="corporate" class="filter-btn px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 hover:border-purple-500/30 transition">Corporate</button>
+            <button data-filter="retail" class="filter-btn px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 hover:border-purple-500/30 transition">Retail</button>
+            <button data-filter="custom" class="filter-btn px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 hover:border-purple-500/30 transition">Custom Cases</button>
+        </div>
+
+        <div id="gallery" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-white/10 aspect-[4/3] bg-white/5" data-category="corporate">
+                <div class="absolute inset-0 bg-gray-800 flex items-center justify-center text-gray-600">Image Placeholder</div>
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition p-6 flex flex-col justify-end">
+                    <h3 class="font-bold text-lg">Branded Acrylic Signage</h3>
+                    <p class="text-sm text-gray-300">Corporate Branding</p>
+                </div>
+            </div>
+
+            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-white/10 aspect-[4/3] bg-white/5" data-category="custom">
+                <div class="absolute inset-0 bg-gray-800 flex items-center justify-center text-gray-600">Image Placeholder</div>
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition p-6 flex flex-col justify-end">
+                    <h3 class="font-bold text-lg">Custom UV Phone Case</h3>
+                    <p class="text-sm text-gray-300">Custom Cases</p>
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Reset Buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-purple-500/20', 'text-purple-400', 'border-purple-500/30');
+                    b.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
+                });
+                
+                // Active Button
+                this.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
+                this.classList.add('bg-purple-500/20', 'text-purple-400', 'border-purple-500/30');
+
+                // Filter Items
+                const filterValue = this.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide-item');
+                    } else {
+                        item.classList.add('hide-item');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

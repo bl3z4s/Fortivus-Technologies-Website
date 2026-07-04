@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Fortivus UV Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .hero-text-glow { text-shadow: 0 0 40px rgba(168, 85, 247, 0.4); }
+        .glow-border:hover { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 0 30px rgba(6, 182, 212, 0.1); }
+    </style>
+</head>
+<body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 top-0 shadow-[0_4px_30px_rgba(0,0,0,0.5)]" id="navbar">
+        <div class="absolute inset-0 bg-[#0d0d0d]/90 backdrop-blur-xl border-b border-white/5"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                    <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                </div>
+                <span class="text-2xl font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Home</a>
+                <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Services</a>
+                <a href="about.html" class="text-sm font-medium text-[#06b6d4] transition-colors">About</a>
+                <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:scale-105 transition-all">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 relative overflow-hidden">
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-[#a855f7]/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-[#06b6d4]/10 rounded-full blur-[120px]"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-wider text-[#06b6d4] uppercase inline-block mb-4">Behind the Studio</span>
+            <h1 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] mb-6 tracking-tight max-w-4xl mx-auto leading-tight">
+                Where <span class="bg-gradient-to-r from-[#a855f7] via-[#c084fc] to-[#06b6d4] bg-clip-text text-transparent hero-text-glow">Tech Meets Art</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                At Fortivus Technologies, we don't just print designs—we engineer high-fidelity, tactile masterpieces that you can feel.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold font-['Space_Grotesk']">The Evolution of Custom Craft</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Fortivus Technologies emerged from a clear vision: to transcend ordinary flat printing and introduce dimensionality to digital customization. We realized that everyday items—like the phone case in your hand, your keyrings, or custom displays—deserved premium, gallery-grade presentation.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        By integrating pinpoint hardware alignment with state-of-the-art A4 UV LED curing capabilities, we specialize exclusively in physical art personalization that guarantees ultra-durable, razor-sharp results.
+                    </p>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden glass-card border border-white/10 p-4 aspect-square flex items-center justify-center group glow-border transition-all duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#a855f7]/20 to-[#06b6d4]/20 opacity-40 mix-blend-overlay"></div>
+                    <div class="text-center space-y-3 z-10 p-6">
+                        <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto text-[#a855f7]">
+                            <i data-lucide="sparkles" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="font-['Space_Grotesk'] font-semibold text-lg">High-Definition Tactile Finish</h4>
+                        <p class="text-xs text-gray-500 max-w-xs">Industrial-grade UV inks layered precisely to build rich textures and scratch-resistant surfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-[#0a0a0a] border-y border-white/5">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold font-['Space_Grotesk'] mb-4">Engineered for Perfection</h2>
+                <p class="text-gray-400 text-sm">How our focus on precise technology shapes every custom product we curate.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center mb-6 text-[#a855f7] group-hover:scale-110 transition-transform">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-3">Multi-Layer Relief</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        We configure multiple layered paths of ink channels to produce a physical, textured 3D embossing you can interact with.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 border border-[#06b6d4]/20 flex items-center justify-center mb-6 text-[#06b6d4] group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-3">Instant UV Curing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Using advanced ultraviolet wavelengths, incoming ink drop coordinates are instantly dried and solidified, preventing any color bleeding.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6 text-pink-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="smartphone" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-['Space_Grotesk'] mb-3">Bespoke Mediums</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        From custom-molded phone backings to clear acrylic block keyrings, every flat or dimensional substrate template is matched flawlessly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6 text-center max-w-3xl relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold font-['Space_Grotesk'] mb-6">Ready to realize your design?</h2>
+            <p class="text-gray-400 mb-8 max-w-lg mx-auto text-sm md:text-base">
+                Step into our design suite matrix, pick your exact model parameters, and configure your finish layout instantly.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="phone-cases.html" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium hover:shadow-[0_0_35px_rgba(6,182,212,0.3)] transition-all transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    Launch Customizer
+                </a>
+                <a href="services.html" class="px-8 py-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 font-medium transition-all w-full sm:w-auto">
+                    Explore Materials
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-12 bg-[#080808]">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
+                    <i data-lucide="layers" class="w-4 h-4 text-white"></i>
+                </div>
+                <span class="text-lg font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
+            </div>
+            <div class="text-gray-500 text-xs">
+                &copy; <script>document.write(new Date().getFullYear())</script> Fortivus Technologies. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize structural interface icons
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

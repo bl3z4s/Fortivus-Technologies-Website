@@ -1,0 +1,35 @@
+body {
+    background-color: #f4f4f4; /* Light background for the website */
+}
+
+header {
+    background-color: #007bff; /* Primary color for the header */
+    color: white; /* Text color for the header */
+}
+
+nav a {
+    color: #ffffff; /* Link color in the navigation */
+}
+
+footer {
+    background-color: #343a40; /* Dark background for the footer */
+    color: #ffffff; /* Text color for the footer */
+}
+
+.btn-primary {
+    background-color: #28a745; /* Primary button color */
+    color: white; /* Text color for buttons */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    color: white; /* Text color for secondary buttons */
+}
+
+h1, h2, h3 {
+    color: #343a40; /* Dark color for headings */
+}
+
+p {
+    color: #495057; /* Text color for paragraphs */
+}
