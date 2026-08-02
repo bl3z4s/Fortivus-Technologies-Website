@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Your Quote | Fortivus Technologies</title>
+    <meta name="description" content="Confirm and submit your Fortivus UV printing quote. Review project details and shipping before submission.">
+    <meta property="og:title" content="Confirm Your Quote | Fortivus Technologies">
+    <meta property="og:description" content="Review and submit your custom printing request to Fortivus.">
+    <meta property="og:image" content="assets/fortivus-icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <div data-include="partials/head.html"></div>
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
     </style>
 </head>
 <body class="bg-[#0d0d0d] text-gray-100 min-h-screen flex flex-col">
-
-    <nav class="border-b border-white/5 bg-[#0d0d0d]/80 backdrop-blur-xl">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold tracking-tighter">FORTIVUS</a>
-            <div class="text-sm text-gray-400">Step 3 of 3: Confirmation</div>
-        </div>
-    </nav>
+    <div data-include="partials/header.html"></div>
 
     <main class="flex-grow container mx-auto px-6 py-12 max-w-4xl">
         <h1 class="text-4xl font-bold mb-8">Review Your Request</h1>
@@ -55,10 +56,12 @@
             </div>
         </div>
     </main>
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 
     <script>
         lucide.createIcons();
-        
+
         document.getElementById('confirm-btn').addEventListener('click', () => {
             alert('Quote submitted successfully! Our team will contact you within 24 hours.');
             window.location.href = 'index.html';

@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story | Fortivus UV Studio</title>
+    <meta name="description" content="Learn about Fortivus Technologies — our approach to premium UV printing, materials, and custom tactile finishes.">
+    <meta property="og:title" content="Our Story | Fortivus Technologies">
+    <meta property="og:description" content="Meet the team behind Fortivus and learn about our UV printing capabilities and studio philosophy.">
+    <meta property="og:image" content="assets/fortivus-icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <div data-include="partials/head.html"></div>
     <style>
         .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         .hero-text-glow { text-shadow: 0 0 40px rgba(168, 85, 247, 0.4); }
@@ -14,22 +21,7 @@
     </style>
 </head>
 <body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
-
-    <nav class="fixed w-full z-50 top-0 shadow-[0_4px_30px_rgba(0,0,0,0.5)]" id="navbar">
-        <div class="absolute inset-0 bg-[#0d0d0d]/90 backdrop-blur-xl border-b border-white/5"></div>
-        <div class="container mx-auto px-6 py-4 relative z-10 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
-                    <i data-lucide="layers" class="w-6 h-6 text-white"></i>
-                </div>
-                <span class="text-2xl font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Home</a>
-                <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Services</a>
-                <a href="about.html" class="text-sm font-medium text-[#06b6d4] transition-colors">About</a>
-                <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:scale-105 transition-all">Contact Us</a>
-            </div>
+    <div data-include="partials/header.html"></div>
         </div>
     </nav>
 
@@ -47,7 +39,6 @@
             </p>
         </div>
     </section>
-
     <section class="py-16">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -132,25 +123,7 @@
         </div>
     </section>
 
-    <footer class="border-t border-white/10 py-12 bg-[#080808]">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
-                    <i data-lucide="layers" class="w-4 h-4 text-white"></i>
-                </div>
-                <span class="text-lg font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
-            </div>
-            <div class="text-gray-500 text-xs">
-                &copy; <script>document.write(new Date().getFullYear())</script> Fortivus Technologies. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize structural interface icons
-        window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-        });
-    </script>
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 </html>

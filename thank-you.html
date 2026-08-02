@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Thank you — Fortivus Technologies</title>
+  <meta name="description" content="Thank you — your order has been received. Fortivus Technologies will process your order and email confirmation shortly.">
+  <meta property="og:title" content="Thank you — Fortivus Technologies">
+  <meta property="og:description" content="Order received — confirmation and next steps from Fortivus Technologies.">
+  <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <div data-include="partials/head.html"></div>
+</head>
+
+<body class="bg-[#0d0d0d] text-gray-100">
+  <div data-include="partials/header.html"></div>
+
+  <main class="container mx-auto px-6 py-20">
+    <div class="max-w-3xl mx-auto text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-6" width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Thank you — your order is received</h1>
+      <p class="text-gray-400 mb-6">We've received your order and will process it shortly. A confirmation email with order details has been sent to you.</p>
+
+      <div id="order-card" class="bg-white/5 border border-white/10 rounded-xl p-6 text-left">
+        <h2 class="text-lg font-semibold mb-2">Order summary</h2>
+        <dl class="grid grid-cols-1 gap-2 text-sm text-gray-300">
+          <div class="flex justify-between"><dt>Order number</dt><dd id="order-id">—</dd></div>
+          <div class="flex justify-between"><dt>Customer email</dt><dd id="order-email">—</dd></div>
+          <div class="flex justify-between"><dt>Items</dt><dd id="order-items">—</dd></div>
+          <div class="flex justify-between"><dt>Total</dt><dd id="order-total">—</dd></div>
+        </dl>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="catalog.html" class="inline-block bg-white/5 hover:bg-white/10 border border-white/10 text-white px-5 py-3 rounded">Browse more products</a>
+        <a href="contact.html" class="inline-block text-white underline">Contact support</a>
+      </div>
+
+      <p class="text-gray-500 text-xs mt-6">If you don't receive an email within a few minutes, check your spam folder or <a href="contact.html" class="underline">contact us</a>.</p>
+    </div>
+  </main>
+
+  <div data-include="partials/footer.html"></div>
+
+  <script src="assets/include.js"></script>
+
+  <script>
+    // Parse known query parameters and populate the order summary.
+    (function(){
+      function qs(){
+        return new URLSearchParams(window.location.search);
+      }
+
+      function formatZAR(amount){
+        if(!amount) return '—';
+        try{ return 'R' + Number(amount).toLocaleString('en-ZA', {maximumFractionDigits:2}); }catch(e){ return 'R' + amount; }
+      }
+
+      const params = qs();
+      const orderId = params.get('orderId') || params.get('id') || '';
+      const email = params.get('email') || '';
+      const items = params.get('items') || params.get('item') || '';
+      const total = params.get('total') || '';
+
+      if(orderId) document.getElementById('order-id').textContent = orderId; else document.getElementById('order-id').textContent = 'Pending';
+      document.getElementById('order-email').textContent = email || 'Not provided';
+      document.getElementById('order-items').textContent = items || 'See confirmation email';
+      document.getElementById('order-total').textContent = total ? formatZAR(total) : 'TBD';
+    })();
+  </script>
+</body>
+</html>

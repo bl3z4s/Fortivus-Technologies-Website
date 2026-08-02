@@ -14,16 +14,7 @@
 </head>
 <body class="bg-[#0d0d0d] text-gray-100">
 
-    <nav class="fixed w-full z-50 top-0 border-b border-white/5 bg-[#0d0d0d]/80 backdrop-blur-xl">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold tracking-tighter">FORTIVUS</a>
-            <div class="space-x-8 text-sm font-medium">
-                <a href="services.html" class="hover:text-purple-400 transition">Services</a>
-                <a href="phone-cases.html" class="text-purple-400">Phone Cases</a>
-                <a href="contact.html" class="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200">Order Now</a>
-            </div>
-        </div>
-    </nav>
+    <div data-include="partials/header.html"></div>
 
     <header class="pt-32 pb-16 px-6 text-center">
         <h1 class="text-5xl md:text-7xl font-bold mb-6">Premium Custom <br><span class="text-purple-400">Phone Cases</span></h1>
@@ -77,12 +68,7 @@
         </div>
     </section>
 
-    <footer class="py-16 text-center text-gray-500 text-sm">
-        <p>&copy; 2026 Fortivus Technologies. All rights reserved.</p>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 </html>

@@ -3,40 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Fortivus UV Studio</title>
+    <title>Our Services | Fortivus Technologies UV Printing Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <div data-include="partials/head.html"></div>
     <style>
         .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .hero-text-glow { text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 80px rgba(6, 182, 212, 0.3); }
     </style>
 </head>
 <body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.5)]" id="navbar">
-        <div class="absolute inset-0 bg-[#0d0d0d]/90 backdrop-blur-xl border-b border-white/5"></div>
-        <div class="container mx-auto px-6 py-4 relative z-10 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
-                    <i data-lucide="layers" class="w-6 h-6 text-white"></i>
-                </div>
-                <span class="text-2xl font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Home</a>
-                <a href="services.html" class="text-sm font-medium text-[#a855f7]">Services</a>
-                <a href="about.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">About</a>
-                <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:scale-105 transition-all">Contact Us</a>
-            </div>
-        </div>
-    </nav>
+    <div data-include="partials/header.html"></div>
 
     <!-- Header -->
     <section class="pt-40 pb-20 relative">
         <div class="absolute inset-0 bg-gradient-to-b from-[#a855f7]/10 to-transparent"></div>
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold font-['Space_Grotesk'] mb-6 hero-text-glow">Premium UV Solutions</h1>
+            <h1 class="text-5xl md:text-7xl font-bold font-['Space_Grotesk'] mb-6 hero-text-glow">Premium UV Printing Solutions in East London, Eastern Cape</h1>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">From bulk corporate branding to bespoke individual pieces, discover how our technology brings your ideas to the physical world.</p>
         </div>
     </section>
@@ -61,7 +45,7 @@
                     </ul>
                 </div>
                 <div class="md:w-1/2 w-full glass-card p-4 rounded-3xl border border-white/10">
-                    <img src="https://static.photos/technology/800x600/301" alt="UV Printing Process" class="rounded-2xl w-full object-cover aspect-video">
+                    <img src="https://images.pexels.com/photos/7254410/pexels-photo-7254410.jpeg" alt="UV Printing Process" class="rounded-2xl w-full object-cover aspect-video">
                 </div>
             </div>
 
@@ -81,7 +65,28 @@
                     </ul>
                 </div>
                 <div class="md:w-1/2 w-full glass-card p-4 rounded-3xl border border-white/10">
-                    <img src="https://static.photos/workspace/800x600/302" alt="Custom Trays" class="rounded-2xl w-full object-cover aspect-video">
+                    <img src="https://images.pexels.com/photos/30853715/pexels-photo-30853715.jpeg" alt="Custom Trays" class="rounded-2xl w-full object-cover aspect-video">
+                </div>
+            </div>
+
+            <!-- A4 Canvases (Specialty Product) -->
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#a855f7]/10 border border-[#a855f7]/30 mb-6">
+                        <i data-lucide="image" class="w-4 h-4 text-[#a855f7]"></i>
+                        <span class="text-sm font-medium text-[#a855f7]">Specialty Product</span>
+                    </div>
+                    <h2 id="A4-Canvases" class="text-4xl font-bold font-['Space_Grotesk'] mb-4">A4 UV Canvases</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">Gallery-quality A4 canvases printed with high-density UV ink and tactile varnish. Ideal for limited runs, framed artwork, product mockups, and premium giveaways.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#06b6d4]"></i> Archival UV inks with excellent colorfastness</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#06b6d4]"></i> Optional tactile varnish and embossed texture</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#06b6d4]"></i> Ready-to-frame with standard A4 backing options</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-[#06b6d4]"></i> Multiple substrate choices: canvas weave, coated board, or acrylic-faced</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 w-full glass-card p-4 rounded-3xl border border-white/10">
+                    <img src="https://images.pexels.com/photos/19920120/pexels-photo-19920120.jpeg" alt="A4 UV Canvas" class="rounded-2xl w-full object-cover aspect-video">
                 </div>
             </div>
 
@@ -101,19 +106,15 @@
                     </ul>
                 </div>
                 <div class="md:w-1/2 w-full glass-card p-4 rounded-3xl border border-white/10">
-                    <img src="https://static.photos/technology/800x600/303" alt="Phone Cases" class="rounded-2xl w-full object-cover aspect-video">
+                    <img src="https://images.pexels.com/photos/374140/pexels-photo-374140.jpeg" alt="Phone Cases" class="rounded-2xl w-full object-cover aspect-video">
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/10 pt-12 pb-8 mt-20">
-        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
-            &copy; <script>document.write(new Date().getFullYear())</script> Fortivus Technologies. All rights reserved.
-        </div>
-    </footer>
-    <script>lucide.createIcons();</script>
+    <!-- Ensure footer include present (idempotent) -->
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 </html>

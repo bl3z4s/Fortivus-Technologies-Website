@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Case Studio | Fortivus UV Studio</title>
+    <meta name="description" content="Custom phone case printing and configurator — Fortivus Technologies. High-resolution UV printed cases with tactile finishes.">
+    <meta property="og:title" content="Custom Case Studio | Fortivus Technologies">
+    <meta property="og:description" content="Design and order custom UV-printed phone cases with textured layers and premium finishes.">
+    <meta property="og:image" content="assets/fortivus-icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <div data-include="partials/head.html"></div>
     <style>
         .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         .hero-text-glow { text-shadow: 0 0 40px rgba(168, 85, 247, 0.4); }
@@ -18,24 +25,7 @@
     </style>
 </head>
 <body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
-
-    <nav class="fixed w-full z-50 top-0 shadow-[0_4px_30px_rgba(0,0,0,0.5)]" id="navbar">
-        <div class="absolute inset-0 bg-[#0d0d0d]/90 backdrop-blur-xl border-b border-white/5"></div>
-        <div class="container mx-auto px-6 py-4 relative z-10 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center">
-                    <i data-lucide="layers" class="w-6 h-6 text-white"></i>
-                </div>
-                <span class="text-2xl font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Home</a>
-                <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Services</a>
-                <a href="about.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">About</a>
-                <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:scale-105 transition-all">Contact Us</a>
-            </div>
-        </div>
-    </nav>
+    <div data-include="partials/header.html"></div>
 
     <section class="pt-32 pb-16 min-h-screen flex items-center">
         <div class="container mx-auto px-6">
@@ -117,9 +107,9 @@
                             </div>
                         </div>
 
-                        <button type="button" class="w-full py-4 rounded-xl bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-bold text-md hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-300">
+                        <a href="quote.html" class="w-full inline-block text-center py-4 rounded-xl bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-bold text-md hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-300">
                             Confirm Design & Quote
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -386,5 +376,8 @@
             populateModels();
         });
     </script>
+    </script>
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 </html>

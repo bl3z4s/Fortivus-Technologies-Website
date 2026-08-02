@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services & Process | Fortivus UV Studio</title>
+    <meta name="description" content="Services and process overview for Fortivus Technologies — how we prepare, print, and finish tactile UV-printed products.">
+    <meta property="og:title" content="Services & Process | Fortivus Technologies">
+    <meta property="og:description" content="Discover our A4 UV printing workflow, surface prep, and finishing options for premium tactile products.">
+    <meta property="og:image" content="assets/fortivus-icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <div data-include="partials/head.html"></div>
     <style>
         /* Custom Styles integrated from the missing style.css */
         .glass-card {
@@ -39,52 +45,7 @@
     </style>
 </head>
 <body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
-        <div class="absolute inset-0 bg-[#0d0d0d]/70 backdrop-blur-xl border-b border-white/5"></div>
-        <div class="container mx-auto px-6 py-4 relative z-10">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.5)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.8)] transition-all duration-500">
-                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <span class="text-2xl font-bold font-['Space_Grotesk'] tracking-tight">
-                        Fortivus<span class="text-[#a855f7]">.</span>
-                    </span>
-                </a>
-                
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
-                        Home
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="services.html" class="text-sm font-medium text-[#a855f7] transition-colors duration-300 relative group">
-                        Services
-                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4]"></span>
-                    </a>
-                    <a href="#gallery" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative group">
-                        Gallery
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 transform hover:scale-105">
-                        Start Project
-                    </a>
-                </div>
-
-                <button class="md:hidden text-white" id="mobile-menu-btn">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div class="md:hidden absolute top-full left-0 w-full bg-[#0d0d0d]/95 backdrop-blur-xl border-b border-white/10 transform translate-y-[-100%] opacity-0 transition-all duration-300 pointer-events-none" id="mobile-menu">
-            <div class="px-6 py-8 flex flex-col gap-4">
-                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10">Home</a>
-                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10 text-[#a855f7]">Services</a>
-                <a href="#gallery" class="text-lg font-medium py-2 border-b border-white/10">Gallery</a>
-                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center">Start Project</a>
-            </div>
-        </div>
-    </nav>
+    <div data-include="partials/header.html"></div>
 
     <section class="pt-32 pb-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-[#a855f7]/10 to-transparent"></div>
@@ -212,6 +173,7 @@
                     <button data-filter="trays" class="px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-medium border border-white/10 hover:bg-white/10 filter-btn transition-all">Trays</button>
                     <button data-filter="cases" class="px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-medium border border-white/10 hover:bg-white/10 filter-btn transition-all">Cases</button>
                     <button data-filter="corporate" class="px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-medium border border-white/10 hover:bg-white/10 filter-btn transition-all">Corporate</button>
+                    <!-- Gallery filter buttons: visual/context comment only -->
                 </div>
             </div>
 
@@ -383,9 +345,9 @@
                 <div>
                     <h4 class="font-semibold mb-6 text-white">Services</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">UV Printing</a></li>
-                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">Custom Trays</a></li>
-                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">Phone Cases</a></li>
+                        <li><a href="UV%20Printing.html" class="hover:text-[#a855f7] transition-colors">UV Printing</a></li>
+                        <li><a href="ServicesPage.html#custom-trays" class="hover:text-[#a855f7] transition-colors" aria-label="Custom Trays">Custom Trays</a></li>
+                        <li><a href="phone-cases.html" class="hover:text-[#a855f7] transition-colors">Phone Cases</a></li>
                     </ul>
                 </div>
                 
@@ -393,7 +355,7 @@
                     <h4 class="font-semibold mb-6 text-white">Company</h4>
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="contact.html" class="hover:text-[#a855f7] transition-colors">Contact</a></li>
-                        <li><a href="#" class="hover:text-[#a855f7] transition-colors">About</a></li>
+                        <li><a href="about.html" rel="noopener" class="hover:text-[#a855f7] transition-colors">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -403,6 +365,9 @@
             </div>
         </div>
     </footer>
+    <!-- Ensure footer include is present before inline scripts -->
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 
     <script>
         // Initialize Icons

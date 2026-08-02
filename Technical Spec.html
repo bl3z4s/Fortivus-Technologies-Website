@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Specs & Engineering Capabilities | Fortivus UV Printing</title>
+    <meta name="description" content="Technical specifications and engineering capabilities of Fortivus Technologies' UV printing processes.">
+    <meta property="og:title" content="Technical Specs | Fortivus Technologies">
+    <meta property="og:description" content="Explore the chemical, mechanical, and printing limits of Fortivus' high-resolution UV processes.">
+    <meta property="og:image" content="assets/fortivus-icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <div data-include="partials/head.html"></div>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -66,66 +72,7 @@
     </style>
 </head>
 <body class="bg-[#060608] text-gray-100 overflow-x-hidden min-h-screen flex flex-col justify-between">
-
-    <!-- Navigation Bar -->
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
-        <div class="absolute inset-0 bg-[#060608]/80 backdrop-blur-xl border-b border-white/5"></div>
-        <div class="container mx-auto px-6 py-4 relative z-10">
-            <div class="flex justify-between items-center">
-                <!-- Brand Logo -->
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#a855f7] to-[#06b6d4] flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all duration-500">
-                        <i data-lucide="layers" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <span class="text-2xl font-bold font-grotesk tracking-tight text-white">
-                        Fortivus<span class="text-[#a855f7]">.</span>
-                    </span>
-                </a>
-                                
-                <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
-                        Home
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="phone-cases.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-[#a855f7] group">
-                        Services & Specs
-                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4]"></span>
-                    </a>
-                    <a href="contact.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors duration-300 relative py-1 text-gray-300 group">
-                        3D Customizer
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-sm hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 transform hover:scale-105">
-                        Start Project
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-                
-        <!-- Mobile Dropdown Menu -->
-        <div class="md:hidden absolute top-full left-0 w-full bg-[#060608]/95 backdrop-blur-xl border-b border-white/10 hidden" id="mobile-menu">
-            <div class="px-6 py-8 flex flex-col gap-4">
-                <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
-                    <span>Home</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
-                </a>
-                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center text-[#a855f7]">
-                    <span>Services & Specs</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
-                </a>
-                <a href="contact.html" class="text-lg font-medium py-2 border-b border-white/10 flex justify-between items-center">
-                    <span>3D Customizer</span> <i data-lucide="chevron-right" class="w-4 h-4 opacity-55"></i>
-                </a>
-                <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center shadow-lg">
-                    Start Custom Project
-                </a>
-            </div>
-        </div>
-    </nav>
+    <div data-include="partials/header.html"></div>
 
     <!-- Header / Hero Segment -->
     <header class="relative pt-36 pb-16 overflow-hidden">
@@ -826,5 +773,8 @@
             }
         });
     </script>
+    </script>
+    <div data-include="partials/footer.html"></div>
+    <script src="assets/include.js"></script>
 </body>
 </html>

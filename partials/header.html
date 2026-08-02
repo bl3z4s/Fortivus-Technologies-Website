@@ -1,0 +1,35 @@
+<!-- partials/header.html - centralized site header/nav -->
+<nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-transparent" id="navbar">
+  <div class="absolute inset-0 bg-transparent backdrop-blur-xl border-b border-white/5"></div>
+  <div class="container mx-auto px-6 py-4 relative z-10">
+    <div class="flex justify-between items-center" role="navigation" aria-label="Main Navigation">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/fortivus-icon.svg" alt="Fortivus logo" class="w-10 h-10 rounded-lg" />
+        <span class="text-2xl font-bold font-['Space_Grotesk']">Fortivus<span class="text-[#a855f7]">.</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Home</a>
+        <a href="services.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Services</a>
+        <a href="faq.html" class="text-sm font-medium hover:text-[#a855f7] transition-colors">FAQ</a>
+        <a href="services.html#gallery" class="text-sm font-medium hover:text-[#a855f7] transition-colors">Gallery</a>
+        <a href="contact.html" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-sm">Start Project</a>
+      </div>
+
+      <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="md:hidden absolute top-full left-0 w-full bg-[#0d0d0d]/95 backdrop-blur-xl border-b border-white/10 hidden" id="mobile-menu">
+    <div class="px-6 py-8 flex flex-col gap-4">
+      <a href="index.html" class="text-lg font-medium py-2 border-b border-white/10">Home</a>
+      <a href="services.html" class="text-lg font-medium py-2 border-b border-white/10">Services</a>
+      <a href="faq.html" class="text-lg font-medium py-2 border-b border-white/10">FAQ</a>
+      <a href="services.html#gallery" class="text-lg font-medium py-2 border-b border-white/10">Gallery</a>
+      <a href="contact.html" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-medium text-center">Start Project</a>
+    </div>
+  </div>
+</nav>
