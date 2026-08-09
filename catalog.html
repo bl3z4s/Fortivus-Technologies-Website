@@ -9,7 +9,7 @@
     <meta property="og:description" content="Browse products printable with our Domsem A4 flatbed printer and request a custom quote from Fortivus UV Printing.">
     <meta property="og:image" content="assets/fortivus-icon.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="assets/fortivus-icon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/svg+xml" href="assets/fortivus-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <div data-include="partials/head.html"></div>
@@ -38,10 +38,9 @@
                         <option value="puzzles">Puzzles</option>
                     </select>
                 </div>
-
-                <div class="mt-2 md:mt-0">
-                    <a href="quote.html" class="inline-block bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-2 rounded-lg">Request General Quote</a>
-                </div>
+                    <div class="mt-2 md:mt-0">
+                        <a href="quote.html" class="inline-block bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-2 rounded-lg">Request General Quote</a>
+                    </div>
             </div>
         </section>
 
@@ -66,64 +65,148 @@
 
     <div data-include="partials/footer.html"></div>
 
-    <!-- Ensure footer partial is injected and assets/include.js runs -->
-    <script src="assets/include.js"></script>
+    <script src="assets/include.js"></script>   
 
     <script>
-        // Product data tailored for the Domsem A4 flatbed (small-format rigid and promo items)
         const PRODUCTS = [
-            { id: 'a4-acrylic-panel', title: 'A4 Acrylic Photo Panel', category: 'panels', priceFrom: 30, desc: 'Acrylic A4 photo panel printed on the Domsem A4 flatbed — crisp detail and vibrant colors.' },
-            { id: 'a4-wood-panel', title: 'A4 Wood (MDF) Panel', category: 'panels', priceFrom: 28, desc: 'A4 wooden panels (MDF) with UV printing for a warm, tactile finish.' },
-            { id: 'phone-case', title: 'Phone Case (Flatbed Compatible)', category: 'cases', priceFrom: 18, desc: 'Small-format phone cases and small accessories printable on the A4 flatbed.' },
-            { id: 'ceramic-tile', title: 'A4 Ceramic Tile', category: 'panels', priceFrom: 22, desc: 'Ceramic tiles suitable for small photo reproductions and decorative uses.' },
-            { id: 'metal-nameplate', title: 'Metal Nameplate (A4/trimmed)', category: 'signage', priceFrom: 35, desc: 'Small metal signs and nameplates printed with durable UV inks.' },
-            { id: 'wooden-coaster', title: 'Wooden Coaster (Custom)', category: 'promos', priceFrom: 8, desc: 'Engraved-look or full-color printed wooden coasters — ideal for promos and gifts.' },
-            { id: 'promo-pack', title: 'Promotional Pack (Keychains + Badges)', category: 'promos', priceFrom: 45, desc: 'Mixed small promotional items printed using the flatbed for branding campaigns.' },
-            { id: 'sample-pack', title: 'Material Sample Pack', category: 'samples', priceFrom: 5, desc: 'Small sample swatches of acrylic, wood, metal and ceramic printed on the Domsem A4 to verify finish and color.' },
-            { id: 'photo-puzzle', title: 'A4 Photo Puzzle (48 pcs)', category: 'puzzles', priceFrom: 120, desc: 'Custom A4 photo puzzles, 48 pieces, printed and die-cut — perfect for gifts and promotions.' },
-            { id: 'mini-puzzle', title: 'Mini Puzzle (A5, 24 pcs)', category: 'puzzles', priceFrom: 80, desc: 'Smaller A5 puzzles printed on rigid board, ideal as a sample or giveaway.' }
+            {
+                id: 'a4-acrylic-panel',
+                title: 'A4 Acrylic Photo Panel',
+                category: 'panels',
+                priceFrom: 30,
+                img: 'https://images.pexels.com/photos/20413277/pexels-photo-20413277.jpeg',   // ← replace with your image
+                desc: 'Acrylic A4 photo panel printed on the Domsem A4 flatbed — crisp detail and vibrant colors.'
+            },
+            {
+                id: 'a4-wood-panel',
+                title: 'A4 Wood (MDF) Panel',
+                category: 'panels',
+                priceFrom: 28,
+                img: 'https://images.pexels.com/photos/17210077/pexels-photo-17210077.jpeg',       // ← replace with your image
+                desc: 'A4 wooden panels (MDF) with UV printing for a warm, tactile finish.'
+            },
+            {
+                id: 'phone-case',
+                title: 'Phone Case (Flatbed Compatible)',
+                category: 'cases',
+                priceFrom: 18,
+                img: 'https://images.pexels.com/photos/691567/pexels-photo-691567.jpeg',          // ← replace with your image
+                desc: 'Small-format phone cases and small accessories printable on the A4 flatbed.'
+            },
+            {
+                id: 'ceramic-tile',
+                title: 'A4 Ceramic Tile',
+                category: 'panels',
+                priceFrom: 22,
+                img: 'https://images.pexels.com/photos/34654832/pexels-photo-34654832.jpeg',        // ← replace with your image
+                desc: 'Ceramic tiles suitable for small photo reproductions and decorative uses.'
+            },
+            {
+                id: 'metal-nameplate',
+                title: 'Metal Nameplate (A4/trimmed)',
+                category: 'signage',
+                priceFrom: 35,
+                img: 'https://images.pexels.com/photos/5745034/pexels-photo-5745034.jpeg',     // ← replace with your image
+                desc: 'Small metal signs and nameplates printed with durable UV inks.'
+            },
+            {
+                id: 'wooden-coaster',
+                title: 'Wooden Coaster (Custom)',
+                category: 'promos',
+                priceFrom: 8,
+                img: 'https://images.pexels.com/photos/12832815/pexels-photo-12832815.jpeg',      // ← replace with your image
+                desc: 'Engraved-look or full-color printed wooden coasters — ideal for promos and gifts.'
+            },
+            {
+                id: 'promo-pack',
+                title: 'Promotional Pack (Keychains + Badges)',
+                category: 'promos',
+                priceFrom: 45,
+                img: 'https://images.pexels.com/photos/14420435/pexels-photo-14420435.jpeg',          // ← replace with your image
+                desc: 'Mixed small promotional items printed using the flatbed for branding campaigns.'
+            },
+            {
+                id: 'sample-pack',
+                title: 'Material Sample Pack',
+                category: 'samples',
+                priceFrom: 5,
+                img: 'https://lasersupplies.co.za/cdn/shop/products/full2016-10-12-44-29IMG_1498.jpg?v=1739953662&width=360',         // ← replace with your image
+                desc: 'Small sample swatches of acrylic, wood, metal and ceramic printed on the A4 UV printer to verify finish and color.'
+            },
+            {
+                id: 'photo-puzzle',
+                title: 'A4 Photo Puzzle (48 pcs)',
+                category: 'puzzles',
+                priceFrom: 120,
+                img: 'https://images.pexels.com/photos/6255656/pexels-photo-6255656.jpeg',        // ← replace with your image
+                desc: 'Custom A4 photo puzzles, 48 pieces, printed and die-cut — perfect for gifts and promotions.'
+            },
+            {
+                id: 'mini-puzzle',
+                title: 'Mini Puzzle (A5, 24 pcs)',
+                category: 'puzzles',
+                priceFrom: 80,
+                img: 'https://images.pexels.com/photos/6210333/pexels-photo-6210333.jpeg',         // ← replace with your image
+                desc: 'Smaller A5 puzzles printed on rigid board, ideal as a sample or giveaway.'
+            }
         ];
 
         const PAGE_SIZE = 6;
         let currentPage = 1;
 
-        function formatZAR(amount){
-            try{
-                return 'R' + Number(amount).toLocaleString('en-ZA', {maximumFractionDigits:0});
-            }catch(e){
+        function formatZAR(amount) {
+            try {
+                return 'R' + Number(amount).toLocaleString('en-ZA', { maximumFractionDigits: 0 });
+            } catch (e) {
                 return 'R' + amount;
             }
         }
 
-        function createCard(p){
+        function createCard(p) {
             const art = document.createElement('article');
-            art.className = 'bg-white/3 p-6 rounded-xl border border-white/10 flex flex-col';
+            art.className = 'bg-white/[0.03] rounded-xl border border-white/10 flex flex-col overflow-hidden hover:border-white/20 transition-colors duration-200';
             art.dataset.category = p.category;
             art.dataset.title = p.title;
 
             art.innerHTML = `
-                <img src="assets/fortivus-icon.svg" alt="${p.title}" class="w-full h-40 object-contain mb-4 bg-white/5 p-4 rounded" />
-                <h3 class="text-lg font-semibold">${p.title}</h3>
-                <p class="text-gray-400 text-sm flex-1 mt-2">${p.desc}</p>
-                <div class="mt-4 flex items-center justify-between">
-                    <span class="text-gray-300 text-sm">From ${formatZAR(p.priceFrom)}</span>
-                    <a href="quote.html?item=${encodeURIComponent(p.title)}" class="text-sm bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded">Request Quote</a>
-                </div>
-            `;
+                        <div class="relative overflow-hidden bg-white/5" style="height:220px;">
+                            <img
+                                src="${p.img}"
+                                alt="${p.title}"
+                                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                                onerror="this.onerror=null;this.src='assets/fortivus-icon.svg';this.className='w-full h-full object-contain p-8 opacity-30';"
+                            />
+                            <span class="absolute top-3 right-3 text-xs bg-black/50 border border-white/10 text-gray-300 px-2 py-1 rounded capitalize">${p.category}</span>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="text-base font-semibold leading-snug">${p.title}</h3>
+                            <p class="text-gray-400 text-sm flex-1 mt-2 leading-relaxed">${p.desc}</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-gray-300 text-sm font-medium">From ${formatZAR(p.priceFrom)}</span>
+                                <a href="quote.html?item=${encodeURIComponent(p.title)}"
+                                   class="text-sm bg-white/5 hover:bg-white/15 border border-white/10 px-3 py-2 rounded transition-colors duration-150">
+                                   Request Quote
+                                </a>
+                            </div>
+                        </div>
+                    `;
 
             return art;
         }
 
-        function renderProducts(list){
+        function renderProducts(list) {
             const container = document.getElementById('products');
             container.innerHTML = '';
+            if (list.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 col-span-3 text-center py-16">No products match your search.</p>';
+                return;
+            }
             list.forEach(p => container.appendChild(createCard(p)));
         }
 
-        function applyFilters(){
+        function applyFilters() {
             const q = document.getElementById('search').value.trim().toLowerCase();
             const cat = document.getElementById('category').value;
-
             return PRODUCTS.filter(p => {
                 const matchesQ = q === '' || p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
                 const matchesCat = cat === 'all' || p.category === cat;
@@ -131,56 +214,48 @@
             });
         }
 
-        function renderPage(page){
+        function renderPage(page) {
             const filtered = applyFilters();
             const total = filtered.length;
             const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
             currentPage = Math.min(Math.max(1, page), pages);
-
             const start = (currentPage - 1) * PAGE_SIZE;
-            const pageItems = filtered.slice(start, start + PAGE_SIZE);
-
-            renderProducts(pageItems);
+            renderProducts(filtered.slice(start, start + PAGE_SIZE));
             renderPagination(pages, total);
         }
 
-        function renderPagination(pages, total){
+        function renderPagination(pages, total) {
             const pag = document.getElementById('pagination');
             pag.innerHTML = '';
 
-            const makeBtn = (label, page, disabled)=>{
+            const makeBtn = (label, page, disabled) => {
                 const b = document.createElement('button');
-                b.className = 'px-3 py-1 rounded bg-white/5 hover:bg-white/10';
+                b.className = 'px-3 py-1 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed';
                 b.textContent = label;
                 b.disabled = disabled;
-                b.addEventListener('click', ()=> renderPage(page));
+                b.addEventListener('click', () => renderPage(page));
                 return b;
             };
 
-            pag.appendChild(makeBtn('Prev', currentPage-1, currentPage<=1));
-
-            for(let i=1;i<=pages;i++){
+            pag.appendChild(makeBtn('Prev', currentPage - 1, currentPage <= 1));
+            for (let i = 1; i <= pages; i++) {
                 const b = document.createElement('button');
-                b.className = 'px-3 py-1 rounded ' + (i===currentPage ? 'bg-white/10' : 'bg-white/5 hover:bg-white/10');
+                b.className = 'px-3 py-1 rounded ' + (i === currentPage ? 'bg-white/20 font-semibold' : 'bg-white/5 hover:bg-white/10');
                 b.textContent = i;
-                b.addEventListener('click', ()=> renderPage(i));
+                b.addEventListener('click', () => renderPage(i));
                 pag.appendChild(b);
             }
+            pag.appendChild(makeBtn('Next', currentPage + 1, currentPage >= pages));
 
-            pag.appendChild(makeBtn('Next', currentPage+1, currentPage>=pages));
-
-            document.getElementById('pagination-info').textContent = `${total} result${total===1 ? '' : 's'}`;
+            document.getElementById('pagination-info').textContent = `${total} result${total === 1 ? '' : 's'}`;
             const top = document.getElementById('pagination-top');
-            if(top) top.textContent = `Page ${currentPage} of ${pages}`;
+            if (top) top.textContent = `Page ${currentPage} of ${pages}`;
         }
 
-        document.getElementById('search').addEventListener('input', ()=> renderPage(1));
-        document.getElementById('category').addEventListener('change', ()=> renderPage(1));
+        document.getElementById('search').addEventListener('input', () => renderPage(1));
+        document.getElementById('category').addEventListener('change', () => renderPage(1));
 
-        // Initial render
         renderPage(1);
     </script>
-
-    <script src="assets/include.js"></script>
 </body>
 </html>

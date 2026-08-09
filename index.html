@@ -27,7 +27,7 @@
 <body class="bg-[#0d0d0d] text-gray-100 overflow-x-hidden">
     <div data-include="partials/header.html"></div>
 
-   <section class="relative min-h-screen flex items-start md:items-center overflow-visible md:overflow-hidden pt-20">
+    <section class="relative min-h-screen flex items-start md:items-center overflow-visible md:overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
             <div class="absolute top-20 left-10 w-72 h-72 bg-[#a855f7]/20 rounded-full blur-[120px] animate-pulse"></div>
             <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#06b6d4]/20 rounded-full blur-[120px] animate-pulse delay-1000"></div>
@@ -49,24 +49,47 @@
             <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                 Premium UV Printing Reimagined. Experience the raised, textured quality of high-resolution A4 UV printing on any surface.
             </p>
-
-            <!--<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="contact.html" class="px-8 py-4 rounded-full bg-gradient-to-r from-[#a855f7] to-[#06b6d4] text-white font-semibold text-lg hover:shadow-[0_0_40px_rgba(168,85,247,0.6)] transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-                    <span>Start Your Project</span>
-                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </a>
-                <a href="services.html" class="px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/5 backdrop-blur-sm transition-all duration-300 flex items-center gap-2 group">
-                    <span>Explore Services</span>
-                    <i data-lucide="play-circle" class="w-5 h-5 group-hover:text-[#a855f7] transition-colors"></i>
-                </a>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
             </div>
-        </div>
-        </div>-->
 
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
-        </div>
-    </section>
+
+            <!-- ═══════════════ VIDEO SECTION ═══════════════ -->
+            <section class="py-20 relative">
+                <div class="container mx-auto px-6">
+
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl md:text-4xl font-bold font-['Space_Grotesk'] mb-3">See It In Action</h2>
+                        <p class="text-gray-400 max-w-xl mx-auto">Watch how we turn ordinary surfaces into extraordinary UV-printed masterpieces.</p>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto relative">
+                        <!-- Glow border -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-[#a855f7] to-[#06b6d4] rounded-3xl blur opacity-30"></div>
+
+                        <div class="relative glass-card rounded-3xl overflow-hidden border border-white/10">
+                            <video class="w-full h-auto block" controls autoplay muted loop playsinline>
+                                <source src="https://www.pexels.com/download/video/3936483/" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- ═══════════════ END VIDEO SECTION ═══════════════ -->
+
+
+</section>
+   
+
+
+
+
+
+
+
+
 
     <section class="py-32 relative">
         <div class="container mx-auto px-6">
@@ -260,8 +283,8 @@
             </script>
 
 
-            
-        
+
+
     </section>
 
     <section class="py-24 relative overflow-hidden">
@@ -271,7 +294,7 @@
                 <div>
                     <h2 class="text-4xl md:text-5xl font-bold font-['Space_Grotesk'] mb-6">The A4 UV Advantage</h2>
                     <p class="text-xl text-gray-300 mb-8 leading-relaxed">Our high-resolution A4 UV printing technology creates more than just images—it creates texture. Feel the difference with raised, durable prints that last.</p>
-                    
+
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
                             <div class="w-12 h-12 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/30 flex items-center justify-center flex-shrink-0">
@@ -301,12 +324,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <a href="services.html" class="inline-flex items-center gap-2 mt-10 px-8 py-4 rounded-full border border-[#a855f7]/50 text-[#a855f7] font-semibold hover:bg-[#a855f7]/10 transition-all duration-300">
                         Explore Our Process <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
                 </div>
-                
+
                 <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20 rounded-3xl blur-2xl"></div>
                     <div class="relative glass-card rounded-3xl p-2">
@@ -328,7 +351,7 @@
             <div class="relative rounded-3xl overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20"></div>
                 <div class="absolute inset-0 backdrop-blur-3xl bg-[#0d0d0d]/40"></div>
-                
+
                 <div class="relative z-10 px-8 py-20 md:px-20 text-center">
                     <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] mb-6">Ready to Feel the Difference?</h2>
                     <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Transform your products with premium UV printing. Whether it's a single custom piece or a bulk business order, we bring your vision to life with texture and brilliance.</p>
@@ -349,12 +372,12 @@
 
     <script>
         lucide.createIcons();
-        
+
         // Mobile Menu Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         let isMenuOpen = false;
-        
+
         mobileBtn.addEventListener('click', () => {
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
